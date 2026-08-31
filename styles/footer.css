@@ -222,3 +222,32 @@
         gap: 10px;
     }
 }
+
+.footer-tech-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.footer-tech-icon:hover {
+    color: #ffffff;
+
+    transform: translateY(-4px) scale(1.08);
+
+    filter:
+        drop-shadow(2px 0 0 #25f4ee)
+        drop-shadow(-2px 0 0 #fe2c55);
+}
