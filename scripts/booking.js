@@ -11,8 +11,8 @@ var PAYFAST_CONFIG = {
     SANDBOX: true, // set to false once ready to take real payments
 
     // --- replace with the client's real PayFast credentials ---
-    MERCHANT_ID: "10000100",      // PLACEHOLDER — PayFast sandbox test ID
-    MERCHANT_KEY: "46f0cd694581a", // PLACEHOLDER — PayFast sandbox test key
+    MERCHANT_ID: "16965295",      // PLACEHOLDER — PayFast sandbox test ID
+    MERCHANT_KEY: "xjajknapajdjk", // PLACEHOLDER — PayFast sandbox test key
     // ------------------------------------------------------------
 
     // Update these once the site has a real domain

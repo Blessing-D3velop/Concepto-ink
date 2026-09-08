@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed | Concepto Ink</title>
+    <meta name="description" content="Your R200 booking fee was received — Concepto Ink will confirm your appointment shortly.">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        .success-page {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 150px 5% 100px;
+            text-align: center;
+        }
+        .success-card {
+            max-width: 560px;
+        }
+        .success-icon {
+            width: 84px;
+            height: 84px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
+            background: rgba(201, 162, 74, 0.08);
+            color: var(--gold-light);
+            font-size: 34px;
+            animation: successPop 0.6s cubic-bezier(.22,1.4,.4,1) both;
+        }
+        @keyframes successPop {
+            from { transform: scale(0.5); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+        .success-card h1 { font-size: clamp(32px, 5vw, 46px); margin-bottom: 18px; }
+        .success-card h1 span { color: var(--gold-light); }
+        .success-card > p {
+            color: rgba(245, 242, 234, 0.7);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+        .success-next {
+            text-align: left;
+            padding: 26px 28px;
+            margin-bottom: 36px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 162, 74, 0.25);
+        }
+        .success-next span {
+            display: block;
+            margin-bottom: 14px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--gold-light);
+        }
+        .success-next ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+        .success-next li { display: flex; gap: 10px; font-size: 13px; color: rgba(245, 242, 234, 0.7); line-height: 1.6; }
+        .success-next li i { color: var(--gold-light); margin-top: 3px; flex-shrink: 0; }
+        .success-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+          <a href="index.html" class="logo">
+              <div class="logo-circle">
+                  <img src="images/logo.jpeg" alt="Concepto Ink Tattoos and Beauty">
+              </div>
+          </a>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="tattoos.html">Tattoos</a>
+                <a href="beauty.html">Beauty</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="right-section">
+                <a href="booking.html" class="book-btn">Book Now</a>
+                <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" type="button">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+                <a href="tattoos.html">Tattoos</a>
+                <a href="beauty.html">Beauty</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            <a href="booking.html" class="mobile-book">Book Now</a>
+        </nav>
+    </header>
+
+    <main>
+    <section class="success-page section-bg">
+        <div class="success-card">
+            <div class="success-icon" data-reveal="zoom-in"><i class="fa-solid fa-check"></i></div>
+
+            <span class="shine-label" style="display:inline-block" data-reveal="fade-up">BOOKING FEE RECEIVED</span>
+            <h1 data-reveal="fade-up">You're <span>Booked In.</span></h1>
+            <p data-reveal="fade-up">
+                Thank you — your R200 booking fee has been received via PayFast.
+                Lawrence will be in touch on WhatsApp to confirm your date and time.
+            </p>
+
+            <div class="success-next" data-reveal="fade-up">
+                <span>WHAT HAPPENS NEXT</span>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> We'll confirm your appointment slot within 24 hours</li>
+                    <li><i class="fa-solid fa-check"></i> Your R200 fee is deducted from the final price on the day</li>
+                    <li><i class="fa-solid fa-check"></i> Keep an eye on WhatsApp for confirmation and any prep notes</li>
+                </ul>
+            </div>
+
+            <div class="success-actions" data-reveal="fade-up">
+                <a href="https://wa.me/27835319734" target="_blank" rel="noopener" class="btn btn-solid">
+                    <i class="fa-brands fa-whatsapp"></i> Message Us
+                </a>
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.jpeg" alt="Concepto Ink">
+                </a>
+                <p>Where art meets identity. Tattoos, piercings, body art and beauty experiences created around you.</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/concepto_ink/?hl=en" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/p/Concepto-Ink-100054845826745/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/27835319734" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@concepto_ink" target="_blank" class="footer-tech-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>QUICK LINKS</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking.html">Book Now</a>
+            </div>
+            <div class="footer-links">
+                <h3>SERVICES</h3>
+                <a href="tattoos.html">Tattooing</a>
+                <a href="tattoos.html">Piercing</a>
+                <a href="beauty.html">Brows &amp; PMU</a>
+                <a href="beauty.html">Lips &amp; Lashes</a>
+            </div>
+            <div class="footer-contact">
+                <h3>VISIT US</h3>
+                <a href="https://www.google.com/maps/search/?api=1&query=48+1st+Street+Orange+Grove+Fairwood+Johannesburg+2192" target="_blank">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>48 1st Street, Orange Grove,<br>Fairwood, Johannesburg, 2192</span>
+                </a>
+                <a href="tel:+27835319734"><i class="fa-solid fa-phone"></i><span>083 531 9734</span></a>
+                <a href="https://wa.me/27835319734" target="_blank"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp Us</span></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Concepto Ink. All Rights Reserved.</p>
+            <p>Tattoos &bull; Piercings &bull; Beauty &bull; Body Art</p>
+        </div>
+    </footer>
+
+    <script src="scripts/header.js"></script>
+    <script src="scripts/reveal.js"></script>
+</body>
+</html>
