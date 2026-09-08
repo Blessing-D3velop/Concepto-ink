@@ -1,0 +1,123 @@
+/* =========================================================
+   CONCEPTO INK — BOOKING + PAYFAST
+   ---------------------------------------------------------
+   ⚠️ SETUP: replace the placeholder PayFast credentials below
+   with the real ones from the client's PayFast dashboard
+   (Settings → Integration). Leave SANDBOX = true until you've
+   test-booked successfully, then flip it to false to go live.
+========================================================= */
+
+var PAYFAST_CONFIG = {
+    SANDBOX: true, // set to false once ready to take real payments
+
+    // --- replace with the client's real PayFast credentials ---
+    MERCHANT_ID: "10000100",      // PLACEHOLDER — PayFast sandbox test ID
+    MERCHANT_KEY: "46f0cd694581a", // PLACEHOLDER — PayFast sandbox test key
+    // ------------------------------------------------------------
+
+    // Update these once the site has a real domain
+    RETURN_URL: "https://conceptoink.co.za/booking-success.html",
+    CANCEL_URL: "https://conceptoink.co.za/booking.html",
+    NOTIFY_URL: "https://conceptoink.co.za/booking-notify.php",
+
+    BOOKING_FEE: "200.00",
+    WHATSAPP_NUMBER: "27835319734"
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var params = new URLSearchParams(window.location.search);
+    var service = params.get("service") || "";
+    var type = params.get("type") || "tattoo";
+
+    if (type === "beauty") {
+        document.body.classList.add("theme-beauty");
+    }
+
+    var serviceLabel = document.getElementById("bookingServiceLabel");
+    var serviceField = document.getElementById("bookingServiceField");
+
+    if (service) {
+        if (serviceLabel) serviceLabel.textContent = service;
+        if (serviceField) serviceField.value = service;
+    } else {
+        if (serviceLabel) serviceLabel.textContent = "General enquiry — tell us what you're after below";
+        if (serviceField) serviceField.value = "General enquiry";
+    }
+
+    var typeField = document.getElementById("bookingTypeField");
+    if (typeField) typeField.value = type;
+
+    var form = document.getElementById("bookingForm");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        var firstName = document.getElementById("bookingFirstName").value.trim();
+        var lastName = document.getElementById("bookingLastName").value.trim();
+        var email = document.getElementById("bookingEmail").value.trim();
+        var phone = document.getElementById("bookingPhone").value.trim();
+        var chosenService = serviceField ? serviceField.value : service;
+        var notes = document.getElementById("bookingNotes").value.trim();
+
+        var paymentId = "CI-" + Date.now();
+
+        var itemDescription = chosenService + (notes ? " | Notes: " + notes : "") + (phone ? " | Cell: " + phone : "");
+
+        var payfastUrl = PAYFAST_CONFIG.SANDBOX
+            ? "https://sandbox.payfast.co.za/eng/process"
+            : "https://www.payfast.co.za/eng/process";
+
+        var fields = {
+            merchant_id: PAYFAST_CONFIG.MERCHANT_ID,
+            merchant_key: PAYFAST_CONFIG.MERCHANT_KEY,
+            return_url: PAYFAST_CONFIG.RETURN_URL,
+            cancel_url: PAYFAST_CONFIG.CANCEL_URL,
+            notify_url: PAYFAST_CONFIG.NOTIFY_URL,
+
+            name_first: firstName,
+            name_last: lastName,
+            email_address: email,
+            cell_number: phone,
+
+            m_payment_id: paymentId,
+            amount: PAYFAST_CONFIG.BOOKING_FEE,
+            item_name: "Concepto Ink Booking Fee",
+            item_description: itemDescription.slice(0, 255)
+        };
+
+        var payfastForm = document.createElement("form");
+        payfastForm.method = "POST";
+        payfastForm.action = payfastUrl;
+
+        Object.keys(fields).forEach(function (key) {
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = key;
+            input.value = fields[key];
+            payfastForm.appendChild(input);
+        });
+
+        document.body.appendChild(payfastForm);
+        payfastForm.submit();
+    });
+
+    // WhatsApp fallback link — pulls in whatever the person has
+    // typed so far, so it's useful even before they submit.
+    var waLink = document.getElementById("bookingWhatsappLink");
+    if (waLink) {
+        waLink.addEventListener("click", function (e) {
+            var chosenService = serviceField ? serviceField.value : service;
+            var name = (document.getElementById("bookingFirstName").value || "").trim();
+
+            var message =
+                "Hi Concepto Ink! 👋%0A%0A" +
+                "I'd like to enquire about booking:%0A*" + encodeURIComponent(chosenService) + "*%0A%0A" +
+                (name ? "My name is " + encodeURIComponent(name) + ".%0A" : "") +
+                "Please let me know the available dates and how the R200 booking fee works. Thank you!";
+
+            waLink.href = "https://wa.me/" + PAYFAST_CONFIG.WHATSAPP_NUMBER + "?text=" + message;
+        });
+    }
+});

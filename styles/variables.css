@@ -1,0 +1,258 @@
+/* =========================================================
+   CONCEPTO INK — DESIGN TOKENS
+   Black + Gold everywhere. Beauty pages swap the accent
+   to a dusty rose pink via body.theme-beauty.
+========================================================= */
+
+:root {
+    --black: #080a0c;
+    --dark-black: #0d1114;
+    --panel: #15181b;
+
+    /* GOLD (default / tattoo theme) */
+    --gold: #c9a24a;
+    --gold-light: #e6c76a;
+    --gold-deep: #8a6418;
+
+    /* PINK (beauty theme) */
+    --pink: #d88ea3;
+    --pink-light: #f3b8c8;
+    --pink-deep: #8a4258;
+
+    /* ACCENT = whichever theme is active. Header/footer/Book
+       Now button always use --gold directly (brand constant);
+       everything else uses --accent so beauty pages shift. */
+    --accent: var(--gold);
+    --accent-light: var(--gold-light);
+    --accent-deep: var(--gold-deep);
+
+    --cream: #e8d9a8;
+    --white: #f5f2ea;
+
+    --header-height: 90px;
+
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: Arial, Helvetica, sans-serif;
+}
+
+/* Beauty theme override — swap the accent chain to pink.
+   Applied via <body class="theme-beauty"> on beauty.html
+   and on booking.html when a beauty service is selected. */
+body.theme-beauty {
+    --accent: var(--pink);
+    --accent-light: var(--pink-light);
+    --accent-deep: var(--pink-deep);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+::selection {
+    background: var(--accent);
+    color: var(--black);
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+/* Gradient gold/pink shimmer text — used for eyebrow labels
+   and heading spans throughout the site. Colour driven by
+   --accent-deep/--accent/--accent-light so it re-themes
+   automatically on beauty pages. */
+.shine-label,
+.shine-text {
+    background: linear-gradient(
+        90deg,
+        var(--accent-deep) 0%,
+        var(--accent) 20%,
+        var(--white) 40%,
+        var(--accent) 55%,
+        var(--accent-deep) 75%,
+        var(--accent-light) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineSweep 4s linear infinite;
+}
+
+.shine-label {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+@keyframes shineSweep {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--white);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border: 1px solid var(--accent);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: transparent;
+    color: var(--accent-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.btn-solid {
+    background: linear-gradient(120deg, var(--accent-deep), var(--accent), var(--accent-light), var(--accent), var(--accent-deep));
+    background-size: 250% 100%;
+    color: var(--black);
+    border-color: transparent;
+}
+
+.btn-solid:hover {
+    background-position: 100% 0;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(201, 162, 74, 0.25);
+}
+
+body.theme-beauty .btn-solid:hover {
+    box-shadow: 0 10px 28px rgba(216, 142, 163, 0.3);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: var(--black);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(201, 162, 74, 0.2);
+}
+
+.btn:active { transform: translateY(-1px); }
+
+/* =========================================================
+   CORNER-GLOW FRAME (reused motif from the original design)
+========================================================= */
+
+.corner-frame {
+    position: relative;
+}
+
+.corner-frame::before,
+.corner-frame::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 7px rgba(201, 162, 74, 0.45));
+    animation: cornerGlow 3s ease-in-out infinite;
+}
+
+body.theme-beauty .corner-frame::before,
+body.theme-beauty .corner-frame::after {
+    filter: drop-shadow(0 0 7px rgba(216, 142, 163, 0.45));
+}
+
+.corner-frame::before {
+    top: -12px;
+    left: -12px;
+    border-top: 2px solid var(--accent-light);
+    border-left: 2px solid var(--accent);
+}
+
+.corner-frame::after {
+    right: -12px;
+    bottom: -12px;
+    border-right: 2px solid var(--accent-light);
+    border-bottom: 2px solid var(--accent);
+    animation-direction: alternate;
+}
+
+@keyframes cornerGlow {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+}
+
+/* =========================================================
+   SECTION BACKGROUND (dark gradient + soft accent glow blobs,
+   the base look used on every page section)
+========================================================= */
+
+.section-bg {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 15% 50%, rgba(201, 162, 74, 0.08), transparent 35%),
+        linear-gradient(135deg, #15181b 0%, #1a1010 50%, #111416 100%);
+}
+
+body.theme-beauty .section-bg {
+    background:
+        radial-gradient(circle at 15% 50%, rgba(216, 142, 163, 0.09), transparent 35%),
+        linear-gradient(135deg, #1a1215 0%, #17181c 50%, #14161a 100%);
+}
+
+.section-bg::before,
+.section-bg::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.section-bg::before {
+    width: 500px; height: 500px;
+    top: -250px; right: -200px;
+    background: rgba(201, 162, 74, 0.06);
+    animation: bgGlow 7s ease-in-out infinite alternate;
+}
+
+.section-bg::after {
+    width: 400px; height: 400px;
+    bottom: -250px; left: -200px;
+    background: rgba(201, 162, 74, 0.04);
+    animation: bgGlow 9s ease-in-out infinite alternate-reverse;
+}
+
+body.theme-beauty .section-bg::before { background: rgba(216, 142, 163, 0.08); }
+body.theme-beauty .section-bg::after { background: rgba(216, 142, 163, 0.05); }
+
+@keyframes bgGlow {
+    from { transform: scale(0.9); opacity: 0.4; }
+    to { transform: scale(1.1); opacity: 0.8; }
+}

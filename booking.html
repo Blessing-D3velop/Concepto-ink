@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now | Concepto Ink</title>
+    <meta name="description" content="Book your tattoo, piercing or beauty appointment at Concepto Ink. R200 booking fee secured via PayFast.">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/pages.css">
+    <link rel="stylesheet" href="styles/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+
+          <a href="index.html" class="logo">
+              <div class="logo-circle">
+                  <img src="images/logo.jpeg" alt="Concepto Ink Tattoos and Beauty">
+              </div>
+          </a>
+
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="tattoos.html">Tattoos</a>
+                <a href="beauty.html">Beauty</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="right-section">
+                <a href="booking.html" class="book-btn">Book Now</a>
+
+                <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" type="button">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+                <a href="tattoos.html">Tattoos</a>
+                <a href="beauty.html">Beauty</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            <a href="booking.html" class="mobile-book">Book Now</a>
+        </nav>
+    </header>
+
+    <main>
+    <section class="booking-page section-bg">
+        <div class="container">
+            <div class="section-heading" data-reveal="fade-up">
+                <span class="shine-label" style="display:inline-block">SECURE YOUR SLOT</span>
+                <h2>Book Your <span>Experience</span></h2>
+                <p>A R200 booking fee confirms your appointment and is deducted from your final price. Paid securely via PayFast.</p>
+            </div>
+
+            <div class="booking-grid">
+
+                <div class="booking-summary" data-reveal="slide-right">
+                    <span class="shine-label">YOU'RE BOOKING</span>
+                    <h3 id="bookingServiceLabel">General enquiry</h3>
+
+                    <div class="booking-fee-row">
+                        <span>Booking Fee</span>
+                        <strong>R200</strong>
+                    </div>
+
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Deducted from your final treatment price</li>
+                        <li><i class="fa-solid fa-check"></i> Confirms your date &amp; time slot</li>
+                        <li><i class="fa-solid fa-check"></i> Paid securely through PayFast</li>
+                        <li><i class="fa-solid fa-check"></i> Non-refundable on late cancellation (within 24 hours)</li>
+                    </ul>
+
+                    <div class="payfast-badges">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Secured by PayFast &mdash; South Africa's trusted payment gateway</span>
+                    </div>
+                </div>
+
+                <form class="booking-form" id="bookingForm" data-reveal="slide-left">
+                    <h3>Your Details</h3>
+
+                    <div class="booking-row">
+                        <div class="booking-field">
+                            <label for="bookingFirstName">First Name</label>
+                            <input type="text" id="bookingFirstName" required placeholder="Jane">
+                        </div>
+                        <div class="booking-field">
+                            <label for="bookingLastName">Last Name</label>
+                            <input type="text" id="bookingLastName" required placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="booking-row">
+                        <div class="booking-field">
+                            <label for="bookingEmail">Email</label>
+                            <input type="email" id="bookingEmail" required placeholder="you@email.com">
+                        </div>
+                        <div class="booking-field">
+                            <label for="bookingPhone">Phone / WhatsApp</label>
+                            <input type="tel" id="bookingPhone" required placeholder="083 000 0000">
+                        </div>
+                    </div>
+
+                    <div class="booking-field full">
+                        <label for="bookingServiceField">Service</label>
+                        <input type="text" id="bookingServiceField" required>
+                    </div>
+
+                    <div class="booking-field full">
+                        <label for="bookingNotes">Preferred Date / Notes (optional)</label>
+                        <textarea id="bookingNotes" placeholder="Let us know a preferred date, placement, reference images, or anything else we should know."></textarea>
+                    </div>
+
+                    <input type="hidden" id="bookingTypeField" value="tattoo">
+
+                    <button type="submit" class="booking-pay-btn">
+                        <i class="fa-solid fa-lock"></i> Pay R200 Booking Fee via PayFast
+                    </button>
+
+                    <p class="booking-form-note">You'll be redirected to PayFast's secure checkout to complete payment.</p>
+
+                    <div class="booking-alt">
+                        <a href="#" id="bookingWhatsappLink" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i> Prefer to chat first? Message us on WhatsApp
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.jpeg" alt="Concepto Ink">
+                </a>
+                <p>Where art meets identity. Tattoos, piercings, body art and beauty experiences created around you.</p>
+
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/concepto_ink/?hl=en" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/p/Concepto-Ink-100054845826745/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/27835319734" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@concepto_ink" target="_blank" class="footer-tech-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>QUICK LINKS</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking.html">Book Now</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>SERVICES</h3>
+                <a href="tattoos.html">Tattooing</a>
+                <a href="tattoos.html">Piercing</a>
+                <a href="beauty.html">Brows &amp; PMU</a>
+                <a href="beauty.html">Lips &amp; Lashes</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>VISIT US</h3>
+                <a href="https://www.google.com/maps/search/?api=1&query=48+1st+Street+Orange+Grove+Fairwood+Johannesburg+2192" target="_blank">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>48 1st Street, Orange Grove,<br>Fairwood, Johannesburg, 2192</span>
+                </a>
+                <a href="tel:+27835319734"><i class="fa-solid fa-phone"></i><span>083 531 9734</span></a>
+                <a href="https://wa.me/27835319734" target="_blank"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp Us</span></a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Concepto Ink. All Rights Reserved.</p>
+            <p>Tattoos &bull; Piercings &bull; Beauty &bull; Body Art</p>
+        </div>
+    </footer>
+
+    <script src="scripts/header.js"></script>
+    <script src="scripts/reveal.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/booking.js"></script>
+</body>
+</html>

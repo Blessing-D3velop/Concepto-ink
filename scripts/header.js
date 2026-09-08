@@ -1,98 +1,56 @@
+/* =========================================================
+   CONCEPTO INK — HEADER JAVASCRIPT
+========================================================= */
 
-/* =========================================
-   CONCEPTO INK
-   HEADER JAVASCRIPT
-========================================= */
+(function () {
+    "use strict";
 
-const header = document.getElementById("siteHeader");
-const hamburger = document.getElementById("hamburger");
-const mobileNav = document.getElementById("mobileNav");
+    var header = document.getElementById("siteHeader");
+    var hamburger = document.getElementById("hamburger");
+    var mobileNav = document.getElementById("mobileNav");
 
-
-/* =========================================
-   HEADER SCROLL EFFECT
-========================================= */
-
-function handleHeaderScroll() {
-
-    if (window.scrollY > 0) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
+    function handleHeaderScroll() {
+        if (!header) return;
+        if (window.scrollY > 0) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
     }
 
-}
+    window.addEventListener("scroll", handleHeaderScroll);
+    handleHeaderScroll();
 
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener("click", function () {
+            var isOpen = hamburger.classList.toggle("active");
+            mobileNav.classList.toggle("active");
+            hamburger.setAttribute("aria-expanded", isOpen);
+        });
 
-/* Run when scrolling */
-window.addEventListener("scroll", handleHeaderScroll);
+        document.querySelectorAll(".mobile-nav a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                hamburger.classList.remove("active");
+                mobileNav.classList.remove("active");
+                hamburger.setAttribute("aria-expanded", "false");
+            });
+        });
 
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove("active");
+                mobileNav.classList.remove("active");
+                hamburger.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
 
-/* Run once when page loads */
-handleHeaderScroll();
-
-
-/* =========================================
-   HAMBURGER MENU
-========================================= */
-
-hamburger.addEventListener("click", () => {
-
-    const isOpen = hamburger.classList.toggle("active");
-
-    mobileNav.classList.toggle("active");
-
-    hamburger.setAttribute(
-        "aria-expanded",
-        isOpen
-    );
-
-});
-
-
-/* =========================================
-   CLOSE MOBILE MENU AFTER CLICKING LINK
-========================================= */
-
-const mobileLinks =
-    document.querySelectorAll(".mobile-nav a");
-
-mobileLinks.forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        hamburger.classList.remove("active");
-
-        mobileNav.classList.remove("active");
-
-        hamburger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
+    // Mark the current page's nav link active (desktop + mobile)
+    var current = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".desktop-nav a, .mobile-nav a").forEach(function (a) {
+        var href = a.getAttribute("href");
+        if (href === current) {
+            a.classList.add("active");
+        }
     });
-
-});
-
-
-/* =========================================
-   CLOSE MENU WHEN RESIZING TO DESKTOP
-========================================= */
-
-window.addEventListener("resize", () => {
-
-    if (window.innerWidth > 768) {
-
-        hamburger.classList.remove("active");
-
-        mobileNav.classList.remove("active");
-
-        hamburger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-});
-
+})();

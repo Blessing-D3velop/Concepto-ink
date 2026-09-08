@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Bar | Concepto Ink</title>
+    <meta name="description" content="Brows, PMU, lips and lashes in Johannesburg. Tap a category to see full pricing and book instantly.">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/pages.css">
+    <link rel="stylesheet" href="styles/extras.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="theme-beauty">
+
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+
+          <a href="index.html" class="logo">
+              <div class="logo-circle">
+                  <img src="images/logo.jpeg" alt="Concepto Ink Tattoos and Beauty">
+              </div>
+          </a>
+
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="tattoos.html">Tattoos</a>
+                <a href="beauty.html">Beauty</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="right-section">
+                <a href="booking.html" class="book-btn">Book Now</a>
+
+                <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" type="button">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+                <a href="tattoos.html">Tattoos</a>
+                <a href="beauty.html">Beauty</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            <a href="booking.html" class="mobile-book">Book Now</a>
+        </nav>
+    </header>
+
+    <main>
+    <section class="service-hero">
+        <div class="service-hero-bg" data-reveal="image" style="background-image:url('images/beauty-hero.jpeg')"></div>
+        <div class="service-hero-overlay"></div>
+        <div class="service-hero-content">
+            <span class="shine-label" data-reveal="fade-up">CONCEPTO INK BEAUTY BAR</span>
+            <h1 data-reveal="fade-up">Beauty <span>With Intention.</span></h1>
+            <p data-reveal="fade-up">Brows, lips and lashes enhanced with a gentle hand and permanent make-up expertise. Tap a category below to see full pricing.</p>
+            <div class="service-hero-buttons" data-reveal="fade-up">
+                <a href="booking.html?type=beauty" class="btn btn-solid">Book Now</a>
+                <a href="gallery.html" class="btn btn-outline">View Gallery</a>
+            </div>
+        </div>
+        <div class="service-hero-scroll"><span>SCROLL</span><div></div></div>
+    </section>
+
+    <section class="page-section section-bg">
+        <div class="container">
+            <div class="section-heading" data-reveal="fade-up">
+                <span class="shine-label" style="display:inline-block">TAP TO SEE PRICING</span>
+                <h2>Choose a <span>treatment</span></h2>
+                <p>Every category opens its full price list right here — no scrolling required.</p>
+            </div>
+            <div class="service-trigger-grid" data-reveal-group>
+                
+        <button class="service-trigger" data-modal-open="modalBrows" data-reveal="fade-up">
+            <div class="service-trigger-from">FROM<strong>R150</strong></div>
+            <div class="service-trigger-icon"><i class="fa-solid fa-eye"></i></div>
+            <h3>Brows</h3>
+            <p>Tint, shape and lamination to frame your look.</p>
+            <span class="service-trigger-cta">View Pricing <i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <button class="service-trigger" data-modal-open="modalPMU" data-reveal="fade-up">
+            <div class="service-trigger-from">FROM<strong>R1,800</strong></div>
+            <div class="service-trigger-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>PMU Brows</h3>
+            <p>Microblading, ombré powder and combo brows.</p>
+            <span class="service-trigger-cta">View Pricing <i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <button class="service-trigger" data-modal-open="modalLips" data-reveal="fade-up">
+            <div class="service-trigger-from">FROM<strong>R2,200</strong></div>
+            <div class="service-trigger-icon"><i class="fa-solid fa-kiss-wink-heart"></i></div>
+            <h3>Lips</h3>
+            <p>Lip blush and neutralisation for natural definition.</p>
+            <span class="service-trigger-cta">View Pricing <i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <button class="service-trigger" data-modal-open="modalLashes" data-reveal="fade-up">
+            <div class="service-trigger-from">FROM<strong>R150</strong></div>
+            <div class="service-trigger-icon"><i class="fa-solid fa-eye"></i></div>
+            <h3>Lashes</h3>
+            <p>Tint and lift for a natural, wide-eyed finish.</p>
+            <span class="service-trigger-cta">View Pricing <i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-heading" data-reveal="fade-up">
+                <span class="shine-label" style="display:inline-block">WHY CONCEPTO INK</span>
+                <h2>Beauty, <span>done with care.</span></h2>
+            </div>
+            <div class="benefits-strip" data-reveal-group>
+                
+        <div class="benefit-card" data-reveal="fade-up">
+            <i class="fa-solid fa-spa"></i>
+            <h3>Gentle &amp; Precise</h3>
+            <p>Every treatment is applied with a light hand and careful attention to your natural features.</p>
+        </div>
+        <div class="benefit-card" data-reveal="fade-up">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h3>Hygiene First</h3>
+            <p>Single-use tools and a fully sanitised private studio for every appointment.</p>
+        </div>
+        <div class="benefit-card" data-reveal="fade-up">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <h3>Perfecting Sessions Included</h3>
+            <p>PMU brow and lip treatments include a follow-up session 6–8 weeks later.</p>
+        </div>
+        <div class="benefit-card" data-reveal="fade-up">
+            <i class="fa-solid fa-heart"></i>
+            <h3>Made For You</h3>
+            <p>Every shape, tint and shade is matched to you — nothing off-the-shelf.</p>
+        </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section section-bg" style="padding:70px 5%;">
+        <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+            <div data-reveal="slide-right">
+                <span class="shine-label" style="margin-bottom:6px;">READY TO GLOW?</span>
+                <h3 style="font-size:28px;margin:0;">Let's enhance your <em style="color:var(--pink-light);font-style:normal;">natural beauty.</em></h3>
+            </div>
+            <a href="https://wa.me/27835319734" target="_blank" rel="noopener" class="btn btn-solid" data-reveal="slide-left"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+        </div>
+    </section>
+
+    
+    <div class="service-modal" id="modalBrows" aria-hidden="true">
+        <div class="service-modal-panel">
+            <button class="service-modal-close" data-modal-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <span class="service-modal-eyebrow">BROW BAR</span>
+            <h3>Brow <span>Menu</span></h3>
+            <p class="service-modal-intro">From a quick tint to full lamination — shaped and tinted to suit you.</p>
+            <div class="service-modal-list">
+                
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Brow Tint</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R150<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Brow Tint — R150">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Brow Shape</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R180<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Brow Shape — R180">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Shape + Tint</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R250<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Shape + Tint — R250">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Brow Lamination + Tint</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R500<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Brow Lamination + Tint — R500">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Brow Lamination + Shape + Tint</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R550<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Brow Lamination + Shape + Tint — R550">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    <div class="service-modal" id="modalPMU" aria-hidden="true">
+        <div class="service-modal-panel">
+            <button class="service-modal-close" data-modal-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <span class="service-modal-eyebrow">PERMANENT MAKE-UP</span>
+            <h3>PMU <span>Brows</span></h3>
+            <p class="service-modal-intro">Semi-permanent brow enhancement — every treatment includes a perfecting session 6–8 weeks later.</p>
+            <div class="service-modal-list">
+                
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Microblading</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R1,800<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Microblading — R1,800">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Nano Brows</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R2,200<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Nano Brows — R2,200">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Ombr&eacute; Powder Brows</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R2,000<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Ombr&eacute; Powder Brows — R2,000">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Combo Brows</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R2,300<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Combo Brows — R2,300">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Blade &amp; Shade</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R2,200<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Blade &amp; Shade — R2,200">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>6&ndash;8 Week Perfecting Session</h4>
+                <p>Included with every PMU brow treatment above.</p>
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">Included<br><small></small></div>
+                <button class="service-row-book" data-booking="6&ndash;8 Week Perfecting Session — Included">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    <div class="service-modal" id="modalLips" aria-hidden="true">
+        <div class="service-modal-panel">
+            <button class="service-modal-close" data-modal-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <span class="service-modal-eyebrow">LIP ENHANCEMENT</span>
+            <h3>Lip <span>Treatments</span></h3>
+            <p class="service-modal-intro">Soft, natural colour and definition — includes a perfecting session 6–8 weeks later.</p>
+            <div class="service-modal-list">
+                
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Lip Blush</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R2,200<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Lip Blush — R2,200">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Lip Neutralisation</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R2,300<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Lip Neutralisation — R2,300">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Lip Blush + Liner Effect</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R2,400<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Lip Blush + Liner Effect — R2,400">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>6&ndash;8 Week Perfecting Session</h4>
+                <p>Included with every lip treatment above.</p>
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">Included<br><small></small></div>
+                <button class="service-row-book" data-booking="6&ndash;8 Week Perfecting Session — Included">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    <div class="service-modal" id="modalLashes" aria-hidden="true">
+        <div class="service-modal-panel">
+            <button class="service-modal-close" data-modal-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <span class="service-modal-eyebrow">LASH BAR</span>
+            <h3>Lash <span>Menu</span></h3>
+            <p class="service-modal-intro">A quick lift and tint for lashes that need no mascara.</p>
+            <div class="service-modal-list">
+                
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Lash Tint</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R150<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Lash Tint — R150">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Lash Lift</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R450<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Lash Lift — R450">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+        <div class="service-row">
+            <div class="service-row-info">
+                <h4>Lash Lift + Tint</h4>
+                
+            </div>
+            <div class="service-row-right">
+                <div class="service-row-price">R550<br><small>once-off</small></div>
+                <button class="service-row-book" data-booking="Lash Lift + Tint — R550">Book This <i class="fa-brands fa-whatsapp" style="display:none"></i></button>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.jpeg" alt="Concepto Ink">
+                </a>
+                <p>Where art meets identity. Tattoos, piercings, body art and beauty experiences created around you.</p>
+
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/concepto_ink/?hl=en" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/p/Concepto-Ink-100054845826745/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/27835319734" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@concepto_ink" target="_blank" class="footer-tech-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>QUICK LINKS</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking.html">Book Now</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>SERVICES</h3>
+                <a href="tattoos.html">Tattooing</a>
+                <a href="tattoos.html">Piercing</a>
+                <a href="beauty.html">Brows &amp; PMU</a>
+                <a href="beauty.html">Lips &amp; Lashes</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>VISIT US</h3>
+                <a href="https://www.google.com/maps/search/?api=1&query=48+1st+Street+Orange+Grove+Fairwood+Johannesburg+2192" target="_blank">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>48 1st Street, Orange Grove,<br>Fairwood, Johannesburg, 2192</span>
+                </a>
+                <a href="tel:+27835319734"><i class="fa-solid fa-phone"></i><span>083 531 9734</span></a>
+                <a href="https://wa.me/27835319734" target="_blank"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp Us</span></a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Concepto Ink. All Rights Reserved.</p>
+            <p>Tattoos &bull; Piercings &bull; Beauty &bull; Body Art</p>
+        </div>
+    </footer>
+
+    <script src="scripts/header.js"></script>
+    <script src="scripts/reveal.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/tilt.js"></script>
+</body>
+</html>

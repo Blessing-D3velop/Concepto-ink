@@ -3,263 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Concepto Ink | Tattoos & Beauty</title>
-
-    <!-- Header CSS -->
+    <meta name="description" content="Concepto Ink — custom tattoos, piercings, body art and beauty enhancements in Johannesburg. Art that defines you.">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/animations.css">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/home.css">
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-
 <body>
 
-    <!-- HEADER -->
     <header class="site-header" id="siteHeader">
-
         <div class="header-container">
 
-          <!-- LOGO -->
-          <a href="#home" class="logo">
+          <a href="index.html" class="logo">
               <div class="logo-circle">
-                  <img src="logo.jpeg" alt="Concepto Ink Tattoos and Beauty">
+                  <img src="images/logo.jpeg" alt="Concepto Ink Tattoos and Beauty">
               </div>
           </a>
 
-
-
-            <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="tattoos.html">Tattoos</a>
+                <a href="beauty.html">Beauty</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
             </nav>
 
-            <!-- RIGHT SECTION -->
             <div class="right-section">
+                <a href="booking.html" class="book-btn">Book Now</a>
 
-                <a href="#booking" class="book-btn">
-                    Book Now
-                </a>
-
-                <!-- HAMBURGER -->
-                <button
-                    class="hamburger"
-                    id="hamburger"
-                    aria-label="Open navigation"
-                    aria-expanded="false"
-                    type="button"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" type="button">
+                    <span></span><span></span><span></span>
                 </button>
-
             </div>
-
         </div>
 
-
-        <!-- MOBILE NAVIGATION -->
         <nav class="mobile-nav" id="mobileNav">
-
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-
-            <a href="#booking" class="mobile-book">
-                Book Now
-            </a>
-
+            <a href="index.html">Home</a>
+                <a href="tattoos.html">Tattoos</a>
+                <a href="beauty.html">Beauty</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            <a href="booking.html" class="mobile-book">Book Now</a>
         </nav>
-
     </header>
 
-
     <main>
+    <section class="home-hero">
+        <div class="home-hero-bg" data-reveal="image"></div>
+        <div class="home-hero-overlay"></div>
 
-      <section class="home" id="home">
-          <div class="home-overlay"></div>
+        <div class="home-hero-content">
+            <span class="shine-label" data-reveal="fade-up">CONCEPTO INK TATTOOS &amp; BEAUTY</span>
 
-          <div class="home-content">
-              <p class="home-subtitle">CONCEPTO INK TATTOOS & BEAUTY</p>
+            <h1 data-reveal="fade-up">Art That Defines You</h1>
 
-              <h1>
-                  Art That Defines You
-              </h1>
+            <p class="home-hero-text" data-reveal="fade-up">
+                Where creativity, beauty and self-expression come together —
+                in a private Johannesburg studio built entirely around you.
+            </p>
 
-              <p class="home-text">
-                  Where creativity, beauty and self-expression come together.
-              </p>
+            <div class="home-cards" data-reveal-group>
 
-              <div class="home-cards">
+                <a href="tattoos.html" class="home-card" data-reveal="zoom-in">
+                    <div class="card-image" data-reveal="image" style="background-image:url('images/tattoo.jpeg')"></div>
+                    <div class="card-content">
+                        <span>TATTOOS</span>
+                        <h2>Ink Your Story</h2>
+                        <p>Custom tattoos, piercings and body art crafted around your vision.</p>
+                        <span class="card-link">Explore Tattoos <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
 
-                  <a href="tattoos.html" class="home-card">
-                      <div class="card-image tattoo-card"></div>
-                      <div class="card-content">
-                          <span>TATTOOS</span>
-                          <h2>Ink Your Story</h2>
-                          <p>Custom tattoos crafted around your vision.</p>
-                          <span class="card-link">Explore Tattoos</span>
-                      </div>
-                  </a>
-
-                  <a href="beaty.html" class="home-card">
-                      <div class="card-image beauty-card"></div>
-                      <div class="card-content">
-                          <span>BEAUTY</span>
-                          <h2>Reveal Your Beauty</h2>
-                          <p>Professional beauty experiences made for you.</p>
-                          <span class="card-link">Explore Beauty</span>
-                      </div>
-                  </a>
-
-              </div>
-          </div>
-      </section>
-
-
-      <section class="about" id="about">
-          <div class="about-container">
-
-              <div class="about-image">
-                  <img src="images/about.jpeg" alt="Concepto Ink">
-              </div>
-
-            <div class="about-content">
-
-                <span class="about-label">
-                    WHERE ART MEETS IDENTITY
-                </span>
-
-                <h2>
-                    ART THAT <span>DEFINES YOU.</span>
-                </h2>
-
-                <p>
-                    Concepto Ink is dedicated to elevating personal aesthetics through precision body art and permanent cosmetic enhancements. From custom tattoo design and body modification to permanent beauty treatments like microblading and lip blush, we craft tailored looks that highlight your individuality.
-                </p>
-
-                <p>
-                    Every experience begins with a conversation. From custom design to the final detail, your transformation takes place in a private Johannesburg studio where the focus stays entirely on you, your safety, and your aesthetic goals.
-                </p>
-
-                <div class="about-buttons">
-
-                    <a href="tattoos.html" class="about-btn">
-                        Explore Tattoos
-                    </a>
-
-                    <a href="beaty.html" class="about-btn">
-                        Explore Beauty
-                    </a>
-
-                </div>
+                <a href="beauty.html" class="home-card beauty-card" data-reveal="zoom-in">
+                    <div class="card-image" data-reveal="image" style="background-image:url('images/beauty.jpeg')"></div>
+                    <div class="card-content">
+                        <span>BEAUTY</span>
+                        <h2>Reveal Your Beauty</h2>
+                        <p>Brows, lips, lashes and permanent make-up made for you.</p>
+                        <span class="card-link">Explore Beauty <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
 
             </div>
 
-          </div>
-      </section>
+            <div class="home-trust" data-reveal="fade-up">
+                <span><i class="fa-solid fa-shield-halved"></i> Hygienic &amp; Licensed Studio</span>
+                <span><i class="fa-solid fa-star"></i> Private Johannesburg Location</span>
+                <span><i class="fa-solid fa-calendar-check"></i> Book In Minutes</span>
+            </div>
 
-
-      <section class="contact" id="contact"> <div class="contact-container"> 
-        <div class="contact-content"> <span class="contact-label">GET IN TOUCH</span> <h2>LET'S CREATE<br><span>SOMETHING BOLD.</span></h2> <p> Ready to bring your idea to life? Visit Concepto Ink or get in touch with us to discuss your next tattoo, piercing or beauty experience. </p> <div class="contact-details"> <a href="https://www.google.com/maps/search/?api=1&query=48+1st+Street+Orange+Grove+Fairwood+Johannesburg+2192" target="_blank" class="contact-item"> <div class="contact-icon"> <i class="fa-solid fa-location-dot"></i> </div> <div> <span>ADDRESS</span> <p>48 1st Street, Orange Grove, Fairwood, Johannesburg, 2192</p> </div> </a> <a href="tel:+27835319734" class="contact-item"> <div class="contact-icon"> <i class="fa-solid fa-phone"></i> </div> <div> <span>PHONE</span> <p>083 531 9734</p> </div> </a> <div class="contact-item"> <div class="contact-icon"> <i class="fa-regular fa-clock"></i> </div> <div> <span>OPENING HOURS</span> <p>Monday - Saturday: 9:00 AM - 7:00 PM</p> <p>Sunday: 10:00 AM - 5:30 PM</p> </div> </div> </div> </div> <div class="contact-card"> <span class="contact-card-label">CONCEPTO INK</span> <h3>BOOK YOUR<br><span>EXPERIENCE.</span></h3> <p> Have a tattoo idea, piercing enquiry or beauty request? Reach out directly and let's talk. </p> <a href="https://wa.me/27835319734" target="_blank" class="contact-whatsapp"> <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp Us</span> </a> <a href="tel:+27835319734" class="contact-call"> <i class="fa-solid fa-phone"></i> <span>Call Us</span> </a> </div> </div> <div class="social-floating"> <a href="https://www.instagram.com/concepto_ink/?hl=en" target="_blank" class="social" aria-label="Instagram"> <i class="fa-brands fa-instagram"></i> </a> <a href="https://www.facebook.com/p/Concepto-Ink-100054845826745/" target="_blank" class="social" aria-label="Facebook"> <i class="fa-brands fa-facebook-f"></i> </a> <a href="https://wa.me/27835319734" target="_blank" class="social" aria-label="WhatsApp"> <i class="fa-brands fa-whatsapp"></i> </a> 
-        <a href="https://www.tiktok.com/@concepto_ink" target="_blank" class="social social-tiktok" aria-label="TikTok">
-    <i class="fa-brands fa-tiktok"></i>
-</a></div>
-      </section>
-
-
-
-
+            <div class="home-quicklinks" data-reveal="fade-up">
+                <a href="gallery.html">View Gallery</a>
+                <a href="about.html">About Concepto Ink</a>
+                <a href="contact.html">Visit Us</a>
+                <a href="booking.html">Book Now</a>
+            </div>
+        </div>
+    </section>
     </main>
 
     <footer class="footer">
         <div class="footer-container">
 
             <div class="footer-brand">
-                <a href="#home" class="footer-logo">
-                    <img src="logo.jpeg" alt="Concepto Ink">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.jpeg" alt="Concepto Ink">
                 </a>
-
-                <p>
-                    Where art meets identity. Tattoos, piercings, body painting
-                    and beauty experiences created around you.
-                </p>
+                <p>Where art meets identity. Tattoos, piercings, body art and beauty experiences created around you.</p>
 
                 <div class="footer-socials">
-                    <a href="https://www.instagram.com/concepto_ink/?hl=en" target="_blank" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-
-                    <a href="https://www.facebook.com/p/Concepto-Ink-100054845826745/" target="_blank" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-
-                    <a href="https://wa.me/27835319734" target="_blank" aria-label="WhatsApp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@concepto_ink" target="_blank" class="footer-tech-icon" aria-label="TikTok">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </a>
+                    <a href="https://www.instagram.com/concepto_ink/?hl=en" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/p/Concepto-Ink-100054845826745/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/27835319734" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@concepto_ink" target="_blank" class="footer-tech-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
 
             <div class="footer-links">
                 <h3>QUICK LINKS</h3>
-
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="tattoos.html">Tattoos</a>
-                <a href="beaty.html">Beauty Enhancements</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking.html">Book Now</a>
             </div>
 
             <div class="footer-links">
                 <h3>SERVICES</h3>
-
                 <a href="tattoos.html">Tattooing</a>
                 <a href="tattoos.html">Piercing</a>
-                <a href="tattoos.html">Body Painting</a>
-                <a href="beaty.html">Beauty Enhancements</a>
+                <a href="beauty.html">Brows &amp; PMU</a>
+                <a href="beauty.html">Lips &amp; Lashes</a>
             </div>
 
             <div class="footer-contact">
                 <h3>VISIT US</h3>
-
                 <a href="https://www.google.com/maps/search/?api=1&query=48+1st+Street+Orange+Grove+Fairwood+Johannesburg+2192" target="_blank">
                     <i class="fa-solid fa-location-dot"></i>
                     <span>48 1st Street, Orange Grove,<br>Fairwood, Johannesburg, 2192</span>
                 </a>
-
-                <a href="tel:+27835319734">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>083 531 9734</span>
-                </a>
-
-                <a href="https://wa.me/27835319734" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp Us</span>
-                </a>
+                <a href="tel:+27835319734"><i class="fa-solid fa-phone"></i><span>083 531 9734</span></a>
+                <a href="https://wa.me/27835319734" target="_blank"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp Us</span></a>
             </div>
 
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 Concepto Ink. All Rights Reserved.</p>
-
-            <p>
-                Tattoos • Piercings • Beauty • Body Art
-            </p>
+            <p>&copy; 2026 Concepto Ink. All Rights Reserved.</p>
+            <p>Tattoos &bull; Piercings &bull; Beauty &bull; Body Art</p>
         </div>
     </footer>
 
-    <!-- Header JavaScript -->
     <script src="scripts/header.js"></script>
-
+    <script src="scripts/reveal.js"></script>
+    <script src="scripts/modal.js"></script>
 </body>
 </html>
-
