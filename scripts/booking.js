@@ -8,7 +8,7 @@
 ========================================================= */
 
 var PAYFAST_CONFIG = {
-    SANDBOX: true, // set to false once ready to take real payments
+    SANDBOX: false, // set to false once ready to take real payments
 
     // --- replace with the client's real PayFast credentials ---
     MERCHANT_ID: "16965295",      // PLACEHOLDER — PayFast sandbox test ID
