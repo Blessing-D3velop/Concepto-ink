@@ -67,7 +67,11 @@
         if (!bookBtn) return;
 
         var service = bookBtn.getAttribute("data-booking");
-        var theme = document.body.classList.contains("theme-beauty") ? "beauty" : "tattoo";
+        // Prefer an explicit data-service-type on <body> (set on
+        // piercings.html) so piercing bookings aren't mislabeled as
+        // tattoo bookings; fall back to theme detection otherwise.
+        var theme = document.body.getAttribute("data-service-type") ||
+            (document.body.classList.contains("theme-beauty") ? "beauty" : "tattoo");
         var url = "booking.html?service=" + encodeURIComponent(service) + "&type=" + theme;
         window.location.href = url;
     });

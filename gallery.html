@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/modal.css">
     <link rel="stylesheet" href="styles/gallery.css">
-    <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
@@ -28,6 +27,7 @@
             <nav class="desktop-nav">
                 <a href="index.html">Home</a>
                 <a href="tattoos.html">Tattoos</a>
+                <a href="piercings.html">Piercings</a>
                 <a href="beauty.html">Beauty</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="about.html">About</a>
@@ -46,6 +46,7 @@
         <nav class="mobile-nav" id="mobileNav">
             <a href="index.html">Home</a>
                 <a href="tattoos.html">Tattoos</a>
+                <a href="piercings.html">Piercings</a>
                 <a href="beauty.html">Beauty</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="about.html">About</a>
@@ -66,6 +67,7 @@
             <div class="gallery-filters" data-reveal="fade-up">
                 <button class="gallery-filter active" data-filter="all">All Work</button>
                 <button class="gallery-filter" data-filter="tattoo">Tattoos</button>
+                <button class="gallery-filter" data-filter="piercing">Piercings</button>
                 <button class="gallery-filter" data-filter="beauty">Beauty</button>
             </div>
 
@@ -88,7 +90,7 @@
         </div>
         <div class="gallery-item" data-category="tattoo" data-reveal="zoom-in">
             <div class="gallery-item-badge">TATTOO</div>
-            <img src="images/gallery/tattoo-8.jpeg" alt="Concepto Ink tattoo — Ornamental Design" loading="lazy">
+            <img src="images/gallery/tattoo-4.jpeg" alt="Concepto Ink tattoo — Ornamental Design" loading="lazy">
             <div class="gallery-item-overlay"><span>Ornamental Design</span></div>
         </div>
         <div class="gallery-item" data-category="tattoo" data-reveal="zoom-in">
@@ -106,31 +108,33 @@
             <img src="images/gallery/tattoo-7.jpeg" alt="Concepto Ink tattoo — Cover-Up" loading="lazy">
             <div class="gallery-item-overlay"><span>Cover-Up</span></div>
         </div>
-        <div class="gallery-item" data-category="tattoo" data-reveal="zoom-in">
-            <div class="gallery-item-badge">TATTOO</div>
-            <img src="images/gallery/tattoo-4.jpeg" alt="Concepto Ink tattoo — Custom Design" loading="lazy">
-            <div class="gallery-item-overlay"><span>Custom Design</span></div>
+        
+        <div class="gallery-item" data-category="piercing" data-reveal="zoom-in">
+            <div class="gallery-item-badge">PIERCING</div>
+            <img src="images/gallery/piercing-1.jpeg" alt="Concepto Ink piercing — Ear Curation" loading="lazy">
+            <div class="gallery-item-overlay"><span>Ear Curation</span></div>
         </div>
-        <div class="gallery-item" data-category="tattoo" data-reveal="zoom-in">
-            <div class="gallery-item-badge">TATTOO</div>
-            <img src="images/gallery/tattoo-9.jpeg" alt="Concepto Ink tattoo — Symbolic Tattoo" loading="lazy">
-            <div class="gallery-item-overlay"><span>Symbolic Tattoo</span></div>
+        <div class="gallery-item" data-category="piercing" data-reveal="zoom-in">
+            <div class="gallery-item-badge">PIERCING</div>
+            <img src="images/gallery/piercing-2.jpeg" alt="Concepto Ink piercing — Helix &amp; Tragus" loading="lazy">
+            <div class="gallery-item-overlay"><span>Helix &amp; Tragus</span></div>
         </div>
-        <div class="gallery-item" data-category="tattoo" data-reveal="zoom-in">
-            <div class="gallery-item-badge">TATTOO</div>
-            <img src="images/gallery/tattoo-10.jpeg" alt="Concepto Ink tattoo — Minimalist" loading="lazy">
-            <div class="gallery-item-overlay"><span>Minimalist</span></div>
+        <div class="gallery-item" data-category="piercing" data-reveal="zoom-in">
+            <div class="gallery-item-badge">PIERCING</div>
+            <img src="images/gallery/piercing-3.jpeg" alt="Concepto Ink piercing — Septum Piercing" loading="lazy">
+            <div class="gallery-item-overlay"><span>Septum Piercing</span></div>
         </div>
-        <div class="gallery-item" data-category="tattoo" data-reveal="zoom-in">
-            <div class="gallery-item-badge">TATTOO</div>
-            <img src="images/gallery/tattoo-11.jpeg" alt="Concepto Ink tattoo — Large Scale" loading="lazy">
-            <div class="gallery-item-overlay"><span>Large Scale</span></div>
+        <div class="gallery-item" data-category="piercing" data-reveal="zoom-in">
+            <div class="gallery-item-badge">PIERCING</div>
+            <img src="images/gallery/piercing-4.jpeg" alt="Concepto Ink piercing — Nostril Piercing" loading="lazy">
+            <div class="gallery-item-overlay"><span>Nostril Piercing</span></div>
         </div>
-        <div class="gallery-item" data-category="tattoo" data-reveal="zoom-in">
-            <div class="gallery-item-badge">TATTOO</div>
-            <img src="images/gallery/tattoo-12.jpeg" alt="Concepto Ink tattoo — Studio Session" loading="lazy">
-            <div class="gallery-item-overlay"><span>Studio Session</span></div>
+        <div class="gallery-item" data-category="piercing" data-reveal="zoom-in">
+            <div class="gallery-item-badge">PIERCING</div>
+            <img src="images/gallery/piercing-5.jpeg" alt="Concepto Ink piercing — Daith Piercing" loading="lazy">
+            <div class="gallery-item-overlay"><span>Daith Piercing</span></div>
         </div>
+
         <div class="gallery-item" data-category="beauty" data-reveal="zoom-in">
             <div class="gallery-item-badge">BEAUTY</div>
             <img src="images/gallery/beauty-1.jpeg" alt="Concepto Ink beauty — Microblading" loading="lazy">
@@ -186,13 +190,6 @@
     </div>
     </main>
 
-        <div class="social-floating">
-            <a href="https://www.instagram.com/concepto_ink/?hl=en" target="_blank" class="social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/p/Concepto-Ink-100054845826745/" target="_blank" class="social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://wa.me/27835319734" target="_blank" class="social" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://www.tiktok.com/@concepto_ink" target="_blank" class="social social-tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-
     <footer class="footer">
         <div class="footer-container">
 
@@ -222,7 +219,7 @@
             <div class="footer-links">
                 <h3>SERVICES</h3>
                 <a href="tattoos.html">Tattooing</a>
-                <a href="tattoos.html">Piercing</a>
+                <a href="piercings.html">Piercing</a>
                 <a href="beauty.html">Brows &amp; PMU</a>
                 <a href="beauty.html">Lips &amp; Lashes</a>
             </div>

@@ -1,24 +1,57 @@
 /* =========================================================
    CONCEPTO INK — BOOKING + PAYFAST
    ---------------------------------------------------------
-   ⚠️ SETUP: replace the placeholder PayFast credentials below
-   with the real ones from the client's PayFast dashboard
-   (Settings → Integration). Leave SANDBOX = true until you've
-   test-booked successfully, then flip it to false to go live.
+   Currently running in SANDBOX mode. The client's live
+   PayFast account (16965295) is still going through document
+   verification — PayFast returns a 400 "merchant account not
+   able to receive payments" until that's approved.
+
+   Your integration itself is confirmed correct (PayFast
+   recognized the Merchant ID and got as far as checking
+   account status, which only happens once the request is
+   valid). Nothing to fix here — just waiting on PayFast.
+
+   TO GO LIVE ONCE VERIFIED: swap the two blocks below —
+   comment out SANDBOX CONFIG, uncomment LIVE CONFIG.
 ========================================================= */
 
+// ---- LIVE CONFIG (client's real PayFast account) ----
+// Uncomment this block and comment out SANDBOX CONFIG below
+// once PayFast confirms document verification is complete.
+//
+// var PAYFAST_CONFIG = {
+//     SANDBOX: false,
+//     MERCHANT_ID: "16965295",
+//     MERCHANT_KEY: "xjajknapajdjk",
+//     RETURN_URL: "https://concepto-ink.vercel.app/booking-success.html",
+//     CANCEL_URL: "https://concepto-ink.vercel.app/booking.html",
+//     NOTIFY_URL: "https://concepto-ink.vercel.app/booking-notify.php",
+//     BOOKING_FEE: "200.00",
+//     WHATSAPP_NUMBER: "27835319734"
+// };
+
+// ---- SANDBOX CONFIG (active now — safe to test, no real money) ----
 var PAYFAST_CONFIG = {
-    SANDBOX: false, // set to false once ready to take real payments
+    SANDBOX: true,
 
-    // --- replace with the client's real PayFast credentials ---
-    MERCHANT_ID: "16965295",      // PLACEHOLDER — PayFast sandbox test ID
-    MERCHANT_KEY: "xjajknapajdjk", // PLACEHOLDER — PayFast sandbox test key
-    // ------------------------------------------------------------
+    MERCHANT_ID: "10000100",       // PayFast's public sandbox test ID
+    MERCHANT_KEY: "46f0cd694581a", // PayFast's public sandbox test key
 
-    // Update these once the site has a real domain
-    RETURN_URL: "https://conceptoink.co.za/booking-success.html",
-    CANCEL_URL: "https://conceptoink.co.za/booking.html",
-    NOTIFY_URL: "https://conceptoink.co.za/booking-notify.php",
+    RETURN_URL: "https://concepto-ink.vercel.app/booking-success.html",
+    CANCEL_URL: "https://concepto-ink.vercel.app/booking.html",
+
+    // ⚠️ NOT YET FUNCTIONAL: this site is static hosting (Vercel),
+    // so there's no server here to receive PayFast's ITN
+    // (Instant Transaction Notification) POST. PayFast will still
+    // try to call this URL after every payment and will just get
+    // a 404 — that does NOT stop the payment or the customer's
+    // redirect back to booking-success.html, but it does mean
+    // there's no automatic server-side "payment confirmed" record.
+    // Fix later with a small Vercel serverless function at
+    // /api/booking-notify (Vercel supports Node functions natively —
+    // ask if you want this built), then point this at:
+    // "https://concepto-ink.vercel.app/api/booking-notify"
+    NOTIFY_URL: "https://concepto-ink.vercel.app/booking-notify.php",
 
     BOOKING_FEE: "200.00",
     WHATSAPP_NUMBER: "27835319734"
