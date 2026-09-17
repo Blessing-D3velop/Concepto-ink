@@ -32,7 +32,7 @@
 
 // ---- SANDBOX CONFIG (active now — safe to test, no real money) ----
 var PAYFAST_CONFIG = {
-    SANDBOX: true,
+    SANDBOX: false, // set to true to test in PayFast's sandbox (no real money)
 
     MERCHANT_ID: "16965295",       // PayFast's public sandbox test ID
     MERCHANT_KEY: "xjajknapajdjk", // PayFast's public sandbox test key
