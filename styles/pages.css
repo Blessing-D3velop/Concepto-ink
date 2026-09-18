@@ -42,13 +42,7 @@ main { display: block; }
     text-align: center;
 }
 
-.home-hero-content .shine-label { text-align: center;
-    display: inline-block;
-    font-size: clamp(18px, 2.8vw, 32px);
-    font-weight: 700;
-    letter-spacing: 5px;
-    line-height: 1.2;
-    text-align: center; }
+.home-hero-content .shine-label { text-align: center; }
 
 .home-hero-content h1 {
     font-size: clamp(34px, 4.6vw, 58px);
@@ -394,4 +388,129 @@ body.theme-beauty .service-hero-content h1 {
     .about-content h1 { font-size: 38px; }
     .about-buttons { flex-direction: column; }
     .about-buttons .btn { width: 100%; }
+}
+
+/* =========================================================
+   ALTERNATING SECTION BACKGROUNDS — Tattoos / Piercings / Beauty
+   ---------------------------------------------------------
+   Same idea as the hero: every other content section reuses
+   that page's own hero photo as its background (fixed, dark
+   overlay for legibility) instead of the plain dark panel.
+   Counting the hero itself as "section 1", this puts the
+   photo on sections 3, 5 (and 7 on Piercings, which has one
+   extra section) and leaves 2, 4, 6 on the plain background.
+
+   Because :nth-of-type() counts position among ALL sibling
+   <section> elements regardless of class — not just elements
+   carrying .page-section — the hero (also a <section>) occupies
+   position 1 automatically. So nth-of-type(N) on a .page-section
+   element already equals "overall section N" with no offset
+   needed: nth-of-type(odd) below correctly lands on overall
+   sections 3, 5 (7 on Piercings) — the hero itself (section 1)
+   already has its own background photo regardless.
+========================================================= */
+
+body[data-service-type="tattoo"] .page-section:nth-of-type(odd),
+body[data-service-type="piercing"] .page-section:nth-of-type(odd),
+body.theme-beauty .page-section:nth-of-type(odd) {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body[data-service-type="tattoo"] .page-section:nth-of-type(odd) {
+    background-image:
+        linear-gradient(rgba(8, 10, 12, 0.55), rgba(8, 10, 12, 0.8)),
+        url('../images/tattoo-hero.jpeg');
+}
+
+body[data-service-type="piercing"] .page-section:nth-of-type(odd) {
+    background-image:
+        linear-gradient(rgba(8, 10, 12, 0.55), rgba(8, 10, 12, 0.8)),
+        url('../images/piercing-hero.jpeg');
+}
+
+body.theme-beauty .page-section:nth-of-type(odd) {
+    background-image:
+        linear-gradient(rgba(8, 10, 12, 0.55), rgba(18, 10, 14, 0.8)),
+        url('../images/beauty-hero.jpeg');
+}
+
+/* Fixed backgrounds can jitter/detach on mobile Safari — fall
+   back to scroll attachment below tablet width, same approach
+   already used for the hero sections elsewhere in the site. */
+@media (max-width: 768px) {
+    body[data-service-type="tattoo"] .page-section:nth-of-type(odd),
+    body[data-service-type="piercing"] .page-section:nth-of-type(odd),
+    body.theme-beauty .page-section:nth-of-type(odd) {
+        background-attachment: scroll;
+    }
+}
+
+/* =========================================================
+   SAME TREATMENT ON THE REMAINING PAGES
+   ---------------------------------------------------------
+   About, Contact, Gallery, Booking and Booking-Success each
+   only have ONE content section (no repeating .page-section
+   blocks to alternate), so instead of odd/even, that single
+   section gets the same fixed hero-photo + dark-overlay
+   background directly. Home is untouched — its one section
+   (.home-hero) already carries its own background photo.
+========================================================= */
+
+.about-page,
+.contact-page,
+.gallery-page,
+.success-page {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-page {
+    background-image:
+        linear-gradient(rgba(8, 10, 12, 0.55), rgba(8, 10, 12, 0.8)),
+        url('../images/about.jpeg');
+}
+
+.contact-page,
+.gallery-page,
+.success-page {
+    background-image:
+        linear-gradient(rgba(8, 10, 12, 0.55), rgba(8, 10, 12, 0.8)),
+        url('../images/home.jpeg');
+}
+
+/* Booking page: default tattoo-hero, switches to beauty-hero
+   when booking.js adds theme-beauty (arrived via a beauty
+   category popup, ?type=beauty). */
+.booking-page {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-image:
+        linear-gradient(rgba(8, 10, 12, 0.55), rgba(8, 10, 12, 0.8)),
+        url('../images/tattoo-hero.jpeg');
+}
+
+body.theme-beauty .booking-page {
+    background-image:
+        linear-gradient(rgba(8, 10, 12, 0.55), rgba(18, 10, 14, 0.8)),
+        url('../images/beauty-hero.jpeg');
+}
+
+@media (max-width: 768px) {
+    .about-page,
+    .contact-page,
+    .gallery-page,
+    .success-page,
+    .booking-page {
+        background-attachment: scroll;
+    }
 }
