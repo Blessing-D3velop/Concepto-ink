@@ -474,7 +474,7 @@ body.theme-beauty .page-section:nth-of-type(odd) {
 .about-page {
     background-image:
         linear-gradient(rgba(8, 10, 12, 0.55), rgba(8, 10, 12, 0.8)),
-        url('../images/about.jpeg');
+        url('../images/home.jpeg');
 }
 
 .contact-page,

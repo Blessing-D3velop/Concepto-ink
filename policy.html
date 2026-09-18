@@ -1,577 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refund & Exchange Policy | Concepto Ink</title>
+<style>
+    :root {
+        --black: #080a0c;
+        --dark-black: #0d1114;
+        --gold: #c9a24a;
+        --gold-light: #e6c76a;
+        --white: #f5f2ea;
+        --text-soft: rgba(245, 242, 234, 0.72);
+    }
 
-    <title>Refund & Exchange Policy | Concepto Ink</title>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/policies.css">
+    body {
+        background: var(--black);
+        color: var(--white);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.75;
+    }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    .policy-header {
+        padding: 70px 6% 50px;
+        text-align: center;
+        background:
+            radial-gradient(circle at 20% 20%, rgba(201, 162, 74, 0.08), transparent 40%),
+            linear-gradient(135deg, #15181b 0%, #111416 100%);
+        border-bottom: 1px solid rgba(201, 162, 74, 0.25);
+    }
+
+    .policy-header span {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--gold-light);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 4px;
+    }
+
+    .policy-header h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        font-size: clamp(32px, 5vw, 50px);
+        color: var(--white);
+        margin-bottom: 14px;
+    }
+
+    .policy-header p {
+        color: var(--text-soft);
+        font-size: 14px;
+    }
+
+    .policy-wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 60px 6% 100px;
+    }
+
+    .policy-section {
+        margin-bottom: 48px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(201, 162, 74, 0.15);
+    }
+
+    .policy-section:last-child {
+        border-bottom: none;
+    }
+
+    .policy-number {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: var(--gold-light);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .policy-section h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        font-size: 24px;
+        color: var(--white);
+        margin-bottom: 16px;
+    }
+
+    .policy-section p {
+        color: var(--text-soft);
+        font-size: 14.5px;
+        margin-bottom: 14px;
+    }
+
+    .policy-section ul {
+        margin: 0 0 14px 0;
+        padding-left: 20px;
+    }
+
+    .policy-section li {
+        color: var(--text-soft);
+        font-size: 14.5px;
+        margin-bottom: 8px;
+    }
+
+    .policy-note {
+        margin-top: 16px;
+        padding: 18px 22px;
+        background: rgba(201, 162, 74, 0.06);
+        border: 1px solid rgba(201, 162, 74, 0.25);
+        border-left: 3px solid var(--gold);
+        font-size: 13.5px;
+        color: var(--text-soft);
+    }
+
+    .policy-footer {
+        text-align: center;
+        padding: 40px 6% 60px;
+        color: rgba(245, 242, 234, 0.45);
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        border-top: 1px solid rgba(201, 162, 74, 0.15);
+    }
+
+    .policy-footer strong {
+        color: var(--gold-light);
+    }
+
+    @media (max-width: 600px) {
+        .policy-header { padding: 55px 6% 40px; }
+        .policy-wrap { padding: 45px 6% 80px; }
+        .policy-section h2 { font-size: 21px; }
+    }
+</style>
 </head>
-
 <body>
 
-<header class="site-header" id="siteHeader">
-
-    <div class="header-container">
-
-        <a href="index.html" class="logo">
-            <div class="logo-circle">
-                <img src="logo.jpeg" alt="Concepto Ink">
-            </div>
-        </a>
-
-        <nav class="desktop-nav">
-            <a href="index.html">Home</a>
-            <a href="tattoos.html">Tattoos</a>
-            <a href="beaty.html">Beauty</a>
-            <a href="index.html#contact">Contact</a>
-        </nav>
-
-        <div class="right-section">
-
-            <a href="index.html" class="policy-back">
-                Back to Website
-            </a>
-
-            <button
-                class="hamburger"
-                id="hamburger"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                type="button"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-        </div>
-
-    </div>
-
-    <nav class="mobile-nav" id="mobileNav">
-
-        <a href="index.html">Home</a>
-        <a href="tattoos.html">Tattoos</a>
-        <a href="beaty.html">Beauty</a>
-        <a href="index.html#contact">Contact</a>
-
-    </nav>
-
-</header>
-
-
-<main class="policy-page">
-
-    <section class="policy-hero">
-
-        <div class="policy-hero-content">
-
-            <span>CONCEPTO INK</span>
-
-            <h1>
-                REFUND &<br>
-                <strong>EXCHANGE POLICY.</strong>
-            </h1>
-
-            <p>
-                Tattoos • Beauty • Art
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="policy-content">
-
-        <div class="policy-intro">
-
-            <span class="policy-label">OUR POLICY</span>
-
-            <h2>
-                REFUNDS, EXCHANGES<br>
-                <strong>& BOOKINGS.</strong>
-            </h2>
-
-            <p>
-                At Concepto Ink, we take pride in providing quality products
-                and professional services. We want every client to have a
-                positive experience, and this Refund & Exchange Policy
-                explains how refunds, exchanges, cancellations and returns
-                are handled.
-            </p>
-
-        </div>
-
-
-        <div class="policy-sections">
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    01
-                </div>
-
-                <div class="policy-body">
-
-                    <span>PRODUCTS</span>
-
-                    <h3>
-                        PRODUCTS PURCHASED ONLINE
-                    </h3>
-
-                    <p>
-                        At Concepto Ink, we take pride in providing quality
-                        products and professional services. We want every
-                        client to have a positive experience, and this Refund
-                        & Exchange Policy explains how refunds, exchanges,
-                        cancellations and returns are handled.
-                    </p>
-
-                    <h4>Returns & Exchanges</h4>
-
-                    <ul>
-                        <li>
-                            We accept returns or exchanges where the
-                            incorrect product was sent.
-                        </li>
-
-                        <li>
-                            The product arrived damaged or defective.
-                        </li>
-
-                        <li>
-                            The product does not reasonably correspond with
-                            its description on our website.
-                        </li>
-
-                        <li>
-                            The product is otherwise eligible for return under
-                            applicable South African consumer law.
-                        </li>
-                    </ul>
-
-                    <p>
-                        For change-of-mind returns, products must generally be
-                        unused, undamaged and in their original packaging,
-                        where applicable. Products that have been opened,
-                        used, personalised or altered may not be eligible for
-                        a change-of-mind exchange or refund, subject to your
-                        rights under applicable law.
-                    </p>
-
-                    <h4>Damaged or Incorrect Orders</h4>
-
-                    <p>
-                        If your order arrives damaged or you receive the wrong
-                        item, please contact us within 48 hours of delivery
-                        and provide your order number, a description of the
-                        problem, and clear photographs of the product and
-                        packaging.
-                    </p>
-
-                    <p>
-                        We will assess the issue and, where appropriate,
-                        arrange a replacement, exchange or refund.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    02
-                </div>
-
-                <div class="policy-body">
-
-                    <span>REFUNDS</span>
-
-                    <h3>
-                        REFUNDS
-                    </h3>
-
-                    <p>
-                        Where a refund is approved, the refund will normally
-                        be made using the same payment method used for the
-                        original purchase, where reasonably possible.
-                    </p>
-
-                    <p>
-                        Refund processing times may depend on the payment
-                        provider or bank and may take several business days
-                        to reflect in your account.
-                    </p>
-
-                    <p>
-                        Shipping or delivery fees may be treated separately
-                        depending on the reason for the return and applicable
-                        consumer law.
-                    </p>
-
-                    <p>
-                        Nothing in this policy limits any consumer rights
-                        that cannot legally be excluded under South African
-                        law.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    03
-                </div>
-
-                <div class="policy-body">
-
-                    <span>TATTOO BOOKINGS</span>
-
-                    <h3>
-                        TATTOO BOOKINGS & DEPOSITS
-                    </h3>
-
-                    <p>
-                        Tattoo appointments require a booking deposit where
-                        specified at the time of booking.
-                    </p>
-
-                    <p>
-                        Because tattoo appointments involve reserving the
-                        artist's time and preparing for a specific
-                        appointment, deposits are generally non-refundable
-                        when a client cancels, fails to attend, or repeatedly
-                        reschedules, except where a refund is required by law
-                        or otherwise agreed by Concepto Ink.
-                    </p>
-
-                    <p>
-                        Deposits may be transferred to another appointment
-                        where the client provides sufficient notice and the
-                        rescheduling conditions communicated at the time of
-                        booking are followed.
-                    </p>
-
-                    <p>
-                        A deposit is not transferable to another person unless
-                        Concepto Ink agrees to the transfer in writing.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    04
-                </div>
-
-                <div class="policy-body">
-
-                    <span>APPOINTMENTS</span>
-
-                    <h3>
-                        CANCELLATIONS & RESCHEDULING
-                    </h3>
-
-                    <p>
-                        Please provide at least 48 hours' notice if you need
-                        to cancel or reschedule a tattoo or beauty appointment.
-                    </p>
-
-                    <p>
-                        Late cancellations, repeated rescheduling and
-                        no-shows may result in the loss of the booking
-                        deposit and/or require a new deposit before another
-                        appointment can be booked.
-                    </p>
-
-                    <p>
-                        If Concepto Ink needs to cancel or reschedule your
-                        appointment, we will contact you as soon as reasonably
-                        possible and provide an alternative appointment or
-                        refund the applicable deposit where appropriate.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    05
-                </div>
-
-                <div class="policy-body">
-
-                    <span>BEAUTY</span>
-
-                    <h3>
-                        BEAUTY SERVICES
-                    </h3>
-
-                    <p>
-                        Beauty services such as brows, lip treatments, lashes
-                        and other treatments are personalised services and
-                        therefore cannot simply be "exchanged" after the
-                        treatment has been performed.
-                    </p>
-
-                    <p>
-                        If you believe that a beauty service was not performed
-                        according to the agreed service or that there is a
-                        service-related issue, please contact us as soon as
-                        possible so that we can assess the matter and determine
-                        an appropriate remedy.
-                    </p>
-
-                    <p>
-                        Where appropriate, Concepto Ink may offer a correction
-                        or touch-up in accordance with the specific treatment's
-                        terms.
-                    </p>
-
-                    <p>
-                        Any correction or touch-up is subject to the treatment
-                        type, healing process and professional assessment.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    06
-                </div>
-
-                <div class="policy-body">
-
-                    <span>TATTOOS</span>
-
-                    <h3>
-                        TATTOO SERVICES
-                    </h3>
-
-                    <p>
-                        Tattoo work is custom artwork created specifically
-                        for the individual client.
-                    </p>
-
-                    <p>
-                        Once a tattoo has been completed, refunds are
-                        generally not available simply because the client
-                        later changes their mind about the design, placement,
-                        size or appearance.
-                    </p>
-
-                    <p>
-                        Where a concern relates to the quality or execution
-                        of the service, please contact Concepto Ink so that
-                        the matter can be assessed.
-                    </p>
-
-                    <p>
-                        Tattoo healing varies from person to person, and
-                        healing-related changes do not automatically
-                        constitute a defect in the service.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    07
-                </div>
-
-                <div class="policy-body">
-
-                    <span>AFTERCARE</span>
-
-                    <h3>
-                        AFTERCARE
-                    </h3>
-
-                    <p>
-                        Clients are responsible for following the aftercare
-                        instructions provided by Concepto Ink.
-                    </p>
-
-                    <p>
-                        Issues resulting from failure to follow aftercare
-                        instructions, picking or scratching the tattoo,
-                        exposure to contamination, excessive sun exposure,
-                        swimming during the recommended healing period, or
-                        other improper aftercare may affect eligibility for
-                        a complimentary correction or touch-up.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    08
-                </div>
-
-                <div class="policy-body">
-
-                    <span>REQUESTS</span>
-
-                    <h3>
-                        HOW TO REQUEST A REFUND OR EXCHANGE
-                    </h3>
-
-                    <p>
-                        Please contact us through the contact details provided
-                        on our website and include:
-                    </p>
-
-                    <ul>
-                        <li>Full name</li>
-                        <li>Order number or booking reference</li>
-                        <li>Date of purchase/appointment</li>
-                        <li>Reason for the request</li>
-                        <li>
-                            Photographs or other supporting information,
-                            where applicable
-                        </li>
-                    </ul>
-
-                    <p>
-                        Please do not send products back without first
-                        contacting us and receiving return instructions.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="policy-section">
-
-                <div class="policy-number">
-                    09
-                </div>
-
-                <div class="policy-body">
-
-                    <span>LEGAL</span>
-
-                    <h3>
-                        LEGAL RIGHTS
-                    </h3>
-
-                    <p>
-                        This policy is intended to operate alongside, and not
-                        replace, your rights under the Consumer Protection
-                        Act 68 of 2008 and other applicable South African law.
-                    </p>
-
-                    <p>
-                        Where applicable law provides a consumer with a right
-                        to return goods, obtain a repair, replacement or
-                        refund, those rights will apply.
-                    </p>
-
-                    <p>
-                        For defective goods, the Consumer Protection Act
-                        provides an implied warranty of quality and, subject
-                        to the Act's requirements, allows qualifying goods to
-                        be returned within six months of delivery.
-                    </p>
-
-                    <p>
-                        Concepto Ink reserves the right to assess each refund,
-                        return, exchange or service complaint on its individual
-                        circumstances, subject always to applicable South
-                        African law.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-
-        <div class="policy-contact">
-
-            <div class="policy-contact-content">
-
-                <span>
-                    NEED ASSISTANCE?
-                </span>
-
-                <h2>
-                    HAVE A QUESTION ABOUT<br>
-                    <strong>YOUR BOOKING?</strong>
-                </h2>
-
-                <p>
-                    Contact Concepto Ink directly and our team will assist
-                    you with your refund, exchange, booking or appointment
-                    enquiry.
-                </p>
-
-            </div>
-
-            <div class="policy-contact-actions">
-
-                <a href="https://wa.me/27835319734" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    WhatsApp Us
-                </a>
-
-                <a href="tel:+27835319734">
-                    <i class="fa-solid fa-phone"></i>
-                    Call Us
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="policy-updated">
-
-            <span>LAST UPDATED</span>
-
-            <strong>SEPTEMBER 2026</strong>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<script src="scripts/header.js"></script>
+    <header class="policy-header">
+        <span>CONCEPTO INK</span>
+        <h1>Refund &amp; Exchange Policy</h1>
+        <p>Tattoos &bull; Beauty &bull; Art</p>
+    </header>
+
+    <main class="policy-wrap">
+
+        <section class="policy-section">
+            <span class="policy-number">01</span>
+            <h2>Products Purchased Online</h2>
+            <p>At Concepto Ink, we take pride in providing quality products and professional services. We want every client to have a positive experience, and this Refund &amp; Exchange Policy explains how refunds, exchanges, cancellations and returns are handled.</p>
+            <p><strong style="color:var(--white)">Returns &amp; Exchanges</strong> — we accept returns or exchanges where:</p>
+            <ul>
+                <li>The incorrect product was sent.</li>
+                <li>The product arrived damaged or defective.</li>
+                <li>The product does not reasonably correspond with its description on our website.</li>
+                <li>The product is otherwise eligible for return under applicable South African consumer law.</li>
+            </ul>
+            <p>For change-of-mind returns, products must generally be unused, undamaged and in their original packaging, where applicable. Products that have been opened, used, personalised or altered may not be eligible for a change-of-mind exchange or refund, subject to your rights under applicable law.</p>
+            <p><strong style="color:var(--white)">Damaged or Incorrect Orders</strong> — if your order arrives damaged or you receive the wrong item, please contact us within 48 hours of delivery and provide your order number, a description of the problem, and clear photographs of the product and packaging. We will assess the issue and, where appropriate, arrange a replacement, exchange or refund.</p>
+        </section>
+
+        <section class="policy-section">
+            <span class="policy-number">02</span>
+            <h2>Refunds</h2>
+            <p>Where a refund is approved, the refund will normally be made using the same payment method used for the original purchase, where reasonably possible. Refund processing times may depend on the payment provider or bank and may take several business days to reflect in your account.</p>
+            <p>Shipping or delivery fees may be treated separately depending on the reason for the return and applicable consumer law.</p>
+            <div class="policy-note">Nothing in this policy limits any consumer rights that cannot legally be excluded under South African law.</div>
+        </section>
+
+        <section class="policy-section">
+            <span class="policy-number">03</span>
+            <h2>Tattoo Bookings &amp; Deposits</h2>
+            <p>Tattoo appointments require a booking deposit where specified at the time of booking. Because tattoo appointments involve reserving the artist's time and preparing for a specific appointment, deposits are generally non-refundable when a client cancels, fails to attend, or repeatedly reschedules, except where a refund is required by law or otherwise agreed by Concepto Ink.</p>
+            <p>Deposits may be transferred to another appointment where the client provides sufficient notice and the rescheduling conditions communicated at the time of booking are followed. A deposit is not transferable to another person unless Concepto Ink agrees to the transfer in writing.</p>
+        </section>
+
+        <section class="policy-section">
+            <span class="policy-number">04</span>
+            <h2>Cancellations &amp; Rescheduling</h2>
+            <p>Please provide at least 48 hours' notice if you need to cancel or reschedule a tattoo or beauty appointment. Late cancellations, repeated rescheduling and no-shows may result in the loss of the booking deposit and/or require a new deposit before another appointment can be booked.</p>
+            <p>If Concepto Ink needs to cancel or reschedule your appointment, we will contact you as soon as reasonably possible and provide an alternative appointment or refund the applicable deposit where appropriate.</p>
+        </section>
+
+        <section class="policy-section">
+            <span class="policy-number">05</span>
+            <h2>Beauty Services</h2>
+            <p>Beauty services such as brows, lip treatments, lashes and other treatments are personalised services and therefore cannot simply be "exchanged" after the treatment has been performed.</p>
+            <p>If you believe that a beauty service was not performed according to the agreed service or that there is a service-related issue, please contact us as soon as possible so that we can assess the matter and determine an appropriate remedy. Where appropriate, Concepto Ink may offer a correction or touch-up in accordance with the specific treatment's terms. Any correction or touch-up is subject to the treatment type, healing process and professional assessment.</p>
+        </section>
+
+        <section class="policy-section">
+            <span class="policy-number">06</span>
+            <h2>Tattoo Services</h2>
+            <p>Tattoo work is custom artwork created specifically for the individual client. Once a tattoo has been completed, refunds are generally not available simply because the client later changes their mind about the design, placement, size or appearance.</p>
+            <p>Where a concern relates to the quality or execution of the service, please contact Concepto Ink so that the matter can be assessed. Tattoo healing varies from person to person, and healing-related changes do not automatically constitute a defect in the service.</p>
+        </section>
+
+        <section class="policy-section">
+            <span class="policy-number">07</span>
+            <h2>Aftercare</h2>
+            <p>Clients are responsible for following the aftercare instructions provided by Concepto Ink. Issues resulting from failure to follow aftercare instructions, picking or scratching the tattoo, exposure to contamination, excessive sun exposure, swimming during the recommended healing period, or other improper aftercare may affect eligibility for a complimentary correction or touch-up.</p>
+        </section>
+
+        <section class="policy-section">
+            <span class="policy-number">08</span>
+            <h2>How to Request a Refund or Exchange</h2>
+            <p>Please contact us through the contact details provided on our website and include:</p>
+            <ul>
+                <li>Full name</li>
+                <li>Order number or booking reference</li>
+                <li>Date of purchase/appointment</li>
+                <li>Reason for the request</li>
+                <li>Photographs or other supporting information, where applicable</li>
+            </ul>
+            <div class="policy-note">Please do not send products back without first contacting us and receiving return instructions.</div>
+        </section>
+
+        <section class="policy-section">
+            <span class="policy-number">09</span>
+            <h2>Legal Rights</h2>
+            <p>This policy is intended to operate alongside, and not replace, your rights under the Consumer Protection Act 68 of 2008 and other applicable South African law. Where applicable law provides a consumer with a right to return goods, obtain a repair, replacement or refund, those rights will apply.</p>
+            <p>For defective goods, the Consumer Protection Act provides an implied warranty of quality and, subject to the Act's requirements, allows qualifying goods to be returned within six months of delivery.</p>
+            <p>Concepto Ink reserves the right to assess each refund, return, exchange or service complaint on its individual circumstances, subject always to applicable South African law.</p>
+        </section>
+
+    </main>
+
+    <footer class="policy-footer">
+        <p>Last updated: <strong>September 2026</strong></p>
+    </footer>
 
 </body>
 </html>
