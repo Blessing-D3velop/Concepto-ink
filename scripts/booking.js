@@ -34,8 +34,8 @@
 var PAYFAST_CONFIG = {
     SANDBOX: true,
 
-    MERCHANT_ID: "10000100",       // PayFast's public sandbox test ID
-    MERCHANT_KEY: "46f0cd694581a", // PayFast's public sandbox test key
+    MERCHANT_ID: "16965295",       // PayFast's public sandbox test ID
+    MERCHANT_KEY: "16965295", // PayFast's public sandbox test key
 
     RETURN_URL: "https://concepto-ink.vercel.app/booking-success.html",
     CANCEL_URL: "https://concepto-ink.vercel.app/booking.html",
@@ -53,7 +53,7 @@ var PAYFAST_CONFIG = {
     // "https://concepto-ink.vercel.app/api/booking-notify"
     NOTIFY_URL: "https://concepto-ink.vercel.app/booking-notify.php",
 
-    BOOKING_FEE: "200.00",
+    BOOKING_FEE: "5.00",
     WHATSAPP_NUMBER: "27835319734"
 };
 
