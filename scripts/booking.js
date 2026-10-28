@@ -32,7 +32,7 @@ var PAYFAST_CONFIG = {
     // serverless function at /api/booking-notify would fix this.
     NOTIFY_URL: SITE_ORIGIN + "/booking-notify.php",
 
-    BOOKING_FEE: "200.00",
+    BOOKING_FEE: "20.00",
     WHATSAPP_NUMBER: "27835319734"
 };
 
