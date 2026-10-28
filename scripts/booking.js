@@ -9,23 +9,30 @@
    MERCHANT_ID "10000100" / MERCHANT_KEY "46f0cd694581a"
 ========================================================= */
 
+// Return/cancel links follow whichever domain the visitor booked on
+// (www.concepto-ink-tattoos.online or the old vercel.app address).
+// Falls back to the main domain if opened as a local file.
+var SITE_ORIGIN = /^https?:/.test(window.location.origin)
+    ? window.location.origin
+    : "https://www.concepto-ink-tattoos.online";
+
 var PAYFAST_CONFIG = {
     SANDBOX: false,
 
     MERCHANT_ID: "16965295",
     MERCHANT_KEY: "xjajknapajdjk",
 
-    RETURN_URL: "https://concepto-ink.vercel.app/booking-success.html",
-    CANCEL_URL: "https://concepto-ink.vercel.app/booking.html",
+    RETURN_URL: SITE_ORIGIN + "/booking-success.html",
+    CANCEL_URL: SITE_ORIGIN + "/booking.html",
 
     // Not functional yet: Vercel static hosting can't run PHP, so
     // PayFast's server-to-server notification will 404. The customer
     // payment and redirect still work; you just get no automatic
     // server-side "payment confirmed" record. A small Vercel
     // serverless function at /api/booking-notify would fix this.
-    NOTIFY_URL: "https://concepto-ink.vercel.app/booking-notify.php",
+    NOTIFY_URL: SITE_ORIGIN + "/booking-notify.php",
 
-    BOOKING_FEE: "5.00",
+    BOOKING_FEE: "200.00",
     WHATSAPP_NUMBER: "27835319734"
 };
 
