@@ -35,7 +35,7 @@ var PAYFAST_CONFIG = {
     SANDBOX: true,
 
     MERCHANT_ID: "16965295",       // PayFast's public sandbox test ID
-    MERCHANT_KEY: "16965295", // PayFast's public sandbox test key
+    MERCHANT_KEY: "xjajknapajdjk", // PayFast's public sandbox test key
 
     RETURN_URL: "https://concepto-ink.vercel.app/booking-success.html",
     CANCEL_URL: "https://concepto-ink.vercel.app/booking.html",
