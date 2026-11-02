@@ -14,7 +14,7 @@
 // Falls back to the main domain if opened as a local file.
 var SITE_ORIGIN = /^https?:/.test(window.location.origin)
     ? window.location.origin
-    : "https://www.concepto-ink-tattoos.online";
+    : "https://www.concepto-ink.com";
 
 var PAYFAST_CONFIG = {
     SANDBOX: false,
@@ -32,7 +32,7 @@ var PAYFAST_CONFIG = {
     // serverless function at /api/booking-notify would fix this.
     NOTIFY_URL: SITE_ORIGIN + "/booking-notify.php",
 
-    BOOKING_FEE: "20.00",
+    BOOKING_FEE: "200.00",
     WHATSAPP_NUMBER: "27835319734"
 };
 
