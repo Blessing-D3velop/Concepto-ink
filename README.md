@@ -129,7 +129,7 @@ copy and visible FAQs, `sitemap.xml`, `robots.txt`, branded `404.html`, `vercel.
 favicons, share image, image dimensions, deferred icon CSS.
 
 After you deploy:
-1. Google Search Console → add `https://www.concepto-ink-tattoos.online` → submit `sitemap.xml`.
+1. Google Search Console → add `https://www.concepto-ink.com` → submit `sitemap.xml`.
 2. Claim/verify the Google Business Profile with the exact name, address, phone and hours used
    on the site (this is the biggest local-ranking lever). Add the website link and photos.
 3. Replace the placeholder images (including `images/og-image.jpg` and the favicons) with real

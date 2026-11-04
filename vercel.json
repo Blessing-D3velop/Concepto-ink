@@ -4,7 +4,19 @@
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "concepto-ink.vercel.app" }],
-      "destination": "https://www.concepto-ink-tattoos.online/$1",
+      "destination": "https://www.concepto-ink.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.concepto-ink-tattoos.online" }],
+      "destination": "https://www.concepto-ink.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "concepto-ink-tattoos.online" }],
+      "destination": "https://www.concepto-ink.com/$1",
       "permanent": true
     }
   ],
