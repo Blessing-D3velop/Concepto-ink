@@ -270,7 +270,7 @@
     .book-btn { min-width: 105px; padding: 10px 15px; font-size: 11px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
     :root { --header-height: 75px; }
     .site-header { height: var(--header-height); }
     .header-container { width: 90%; gap: 15px; }

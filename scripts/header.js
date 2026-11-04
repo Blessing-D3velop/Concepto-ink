@@ -37,7 +37,7 @@
         });
 
         window.addEventListener("resize", function () {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 860) {
                 hamburger.classList.remove("active");
                 mobileNav.classList.remove("active");
                 hamburger.setAttribute("aria-expanded", "false");
@@ -47,6 +47,8 @@
 
     // Mark the current page's nav link active (desktop + mobile)
     var current = window.location.pathname.split("/").pop() || "index.html";
+    // the three legal pages light up the "Policies" nav item
+    if (["refund-policy.html","terms-and-conditions.html","privacy-policy.html"].indexOf(current) !== -1) { current = "policies.html"; }
     document.querySelectorAll(".desktop-nav a, .mobile-nav a").forEach(function (a) {
         var href = a.getAttribute("href");
         if (href === current) {

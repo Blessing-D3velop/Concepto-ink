@@ -138,3 +138,117 @@
 @media (max-width: 480px) {
     .benefits-strip { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   SEO CONTENT — FAQ accordion + home intro columns
+   (pure HTML <details>, no JavaScript needed)
+========================================================= */
+
+.faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    border: 1px solid rgba(201, 162, 74, 0.3);
+    background: rgba(13, 17, 20, 0.88);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+body.theme-beauty .faq-item { border-color: rgba(216, 142, 163, 0.35); }
+
+.faq-item[open] { border-color: var(--accent-light); background: rgba(13, 17, 20, 0.95); }
+
+.faq-item summary {
+    position: relative;
+    padding: 20px 56px 20px 24px;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--white);
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--sans);
+    font-size: 24px;
+    color: var(--accent-light);
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after { content: "\2212"; }
+
+.faq-item summary:hover { color: var(--accent-light); }
+
+.faq-answer { padding: 0 24px 22px; }
+
+.faq-answer p {
+    margin: 0;
+    color: rgba(245, 242, 234, 0.72);
+    font-size: 14.5px;
+    line-height: 1.85;
+}
+
+.faq-answer a,
+.seo-columns a,
+.seo-visit a {
+    color: var(--accent-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.faq-answer a:hover,
+.seo-columns a:hover,
+.seo-visit a:hover { color: var(--white); }
+
+.seo-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    margin-top: 10px;
+}
+
+.seo-columns article {
+    padding: 30px 28px;
+    border: 1px solid rgba(201, 162, 74, 0.28);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.seo-columns h3 { font-size: 21px; margin-bottom: 12px; }
+.seo-columns h3 a { text-decoration: none; color: var(--white); }
+.seo-columns h3 a:hover { color: var(--accent-light); }
+
+.seo-columns p {
+    margin: 0;
+    color: rgba(245, 242, 234, 0.68);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.seo-visit {
+    margin: 36px 0 0;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: rgba(245, 242, 234, 0.6);
+}
+
+@media (max-width: 900px) {
+    .seo-columns { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .faq-item summary { font-size: 16px; padding: 18px 50px 18px 18px; }
+    .faq-answer { padding: 0 18px 20px; }
+}

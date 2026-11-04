@@ -1,0 +1,13 @@
+/* Extras for the policies hub and the legal pages (policies.css is left untouched) */
+.policy-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-bottom: 10px; }
+.policy-card { position: relative; display: flex; flex-direction: column; padding: 40px 32px 34px; border: 1px solid rgba(201, 162, 74, 0.3); background: linear-gradient(145deg, rgba(40, 43, 45, 0.55), rgba(17, 20, 22, 0.92)); text-decoration: none; color: inherit; transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+.policy-card:hover { transform: translateY(-8px); border-color: #e6c76a; box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4), 0 0 25px rgba(201, 162, 74, 0.12); }
+.policy-card-num { margin-bottom: 18px; color: #c9a24a; font-family: Georgia, "Times New Roman", serif; font-size: 34px; }
+.policy-card h2 { margin: 0 0 14px; color: #f5f2ea; font-family: Georgia, "Times New Roman", serif; font-size: 26px; font-weight: 400; line-height: 1.15; }
+.policy-card p { flex: 1; margin: 0 0 24px; color: rgba(245, 242, 234, 0.66); font-size: 14px; line-height: 1.8; }
+.policy-card-more { color: #e6c76a; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.policy-back-wrap { margin-top: 34px; text-align: center; }
+.policy-related { margin: 22px 0 0; color: rgba(245, 242, 234, 0.55); font-size: 13px; line-height: 1.9; }
+.policy-related a, .policy-body a { color: #e6c76a; text-decoration: underline; text-underline-offset: 3px; }
+.policy-related a:hover, .policy-body a:hover { color: #f5f2ea; }
+@media (max-width: 900px) { .policy-cards { grid-template-columns: 1fr; } }

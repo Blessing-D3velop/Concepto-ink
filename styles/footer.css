@@ -262,3 +262,10 @@ body.theme-beauty .footer {
     .social-floating { right: 15px; bottom: 15px; }
     .social-floating .social { width: 44px; height: 44px; font-size: 18px; }
 }
+
+/* Legal links in the footer bottom bar */
+.footer-bottom { flex-wrap: wrap; }
+.footer-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; }
+.footer-legal a { color: rgba(245, 242, 234, 0.62); font-size: 12px; letter-spacing: 0.5px; text-decoration: none; transition: color 0.3s ease; }
+.footer-legal a:hover { color: var(--accent-light); }
+@media (max-width: 600px) { .footer-legal { justify-content: flex-start; } }

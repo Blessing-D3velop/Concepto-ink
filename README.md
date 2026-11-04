@@ -85,7 +85,7 @@ of `tattoo` or `beauty`.
 
 ### 3. WhatsApp / contact details
 Phone, WhatsApp and email are already wired through from the original
-site (083 531 9734 / mphodolawrance-style WhatsApp links). If they ever
+site (083 531 9734). If they ever
 change, search-and-replace `27835319734` across the `.html` files and
 `scripts/booking.js`.
 
@@ -119,3 +119,32 @@ scripts/
   booking.js            PayFast form + WhatsApp fallback
   tilt.js               card hover tilt
 ```
+
+## SEO (added)
+
+Built in: unique title + description + canonical + Open Graph/Twitter tags on every page, JSON-LD
+(TattooParlor/BeautySalon business with address, hours, phone, price list, FAQ), keyword-rich
+copy and visible FAQs, `sitemap.xml`, `robots.txt`, branded `404.html`, `vercel.json`
+(old vercel.app address 301-redirects to the main domain, caching, security headers),
+favicons, share image, image dimensions, deferred icon CSS.
+
+After you deploy:
+1. Google Search Console → add `https://www.concepto-ink-tattoos.online` → submit `sitemap.xml`.
+2. Claim/verify the Google Business Profile with the exact name, address, phone and hours used
+   on the site (this is the biggest local-ranking lever). Add the website link and photos.
+3. Replace the placeholder images (including `images/og-image.jpg` and the favicons) with real
+   photos/logo. Name photos descriptively and update `alt` text in the HTML where you can.
+4. Ask happy clients for Google reviews. Don't add review stars to the markup unless they are real.
+5. In Vercel → Domains, make sure the non-www domain redirects to `www`.
+
+## Legal pages (added)
+
+- `policies.html` (hub, linked in the nav bar as "Policies"), `refund-policy.html`,
+  `terms-and-conditions.html`, `privacy-policy.html` — all styled with `styles/policies.css`
+  (unchanged) plus `styles/legal.css`. Linked in the footer bottom bar on every page, and from
+  the booking page next to the pay button. All four are in `sitemap.xml`.
+- The old `policy.html` now redirects (301) to `refund-policy.html` via `vercel.json`.
+- The Refund & Exchange Policy is the client's own text. The Terms & Conditions and Privacy
+  Policy are drafts based on how the site works — the owner should read them (ideally a lawyer
+  too) and edit anything that doesn't match how the studio operates.
+- `scripts/booking.js` is the client's working version and is not modified by this update.

@@ -1,0 +1,27 @@
+{
+  "redirects": [
+    { "source": "/policy.html", "destination": "/refund-policy.html", "permanent": true },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "concepto-ink.vercel.app" }],
+      "destination": "https://www.concepto-ink-tattoos.online/$1",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    },
+    {
+      "source": "/(images|styles|scripts)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    }
+  ]
+}

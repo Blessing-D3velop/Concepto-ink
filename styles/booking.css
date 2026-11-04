@@ -203,3 +203,5 @@ body.theme-beauty .booking-pay-btn:hover {
     .booking-row { grid-template-columns: 1fr; }
     .booking-form, .booking-summary { padding: 32px 24px; }
 }
+
+.booking-form-note a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 3px; }
