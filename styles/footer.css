@@ -258,79 +258,45 @@ body.theme-beauty .footer {
     text-shadow: 3px 3px 0 #25f4ee, -3px -3px 0 #fe2c55;
 }
 
-/* Blessing Dev Solution - Developer Credit */
-
-.dev-credit {
+/* Separate Developer Icon */
+.developer-credit {
   position: fixed;
-  bottom: 25px;
   left: 25px;
-  width: 46px;
-  height: 46px;
+  bottom: 25px;
+  z-index: 99999;
+
+  width: 58px;
+  height: 58px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: #080808;
-  color: #fff;
-  border: 1px solid #e50914;
+  color: #ffffff;
+  border: 2px solid #e50914;
   border-radius: 50%;
+
+  font-size: 23px;
   text-decoration: none;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  z-index: 9999;
-  transition: all 0.3s ease;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
 }
 
-.dev-credit-text {
-  position: relative;
-  z-index: 2;
-}
-
-.dev-credit-dot {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 6px;
-  height: 6px;
-  background: #16a34a;
-  border-radius: 50%;
-}
-
-.dev-credit:hover {
+.developer-credit:hover {
   background: #e50914;
-  color: #fff;
+  color: #ffffff;
   transform: translateY(-4px);
 }
 
-.dev-credit-tooltip {
-  position: absolute;
-  left: 55px;
-  width: max-content;
-  padding: 9px 12px;
-  background: #080808;
-  color: #fff;
-  border: 1px solid #e50914;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 500;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s ease;
-  pointer-events: none;
-}
-
-.dev-credit:hover .dev-credit-tooltip,
-.dev-credit:focus-visible .dev-credit-tooltip {
-  opacity: 1;
-  visibility: visible;
-}
-
 @media (max-width: 600px) {
-  .dev-credit {
-    width: 43px;
-    height: 43px;
-    bottom: 18px;
+  .developer-credit {
     left: 18px;
+    bottom: 18px;
+    width: 52px;
+    height: 52px;
+    font-size: 21px;
   }
 }
 @media (max-width: 500px) {
