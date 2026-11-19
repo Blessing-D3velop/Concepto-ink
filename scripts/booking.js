@@ -1,38 +1,26 @@
+
 /* =========================================================
    CONCEPTO INK — BOOKING + PAYFAST
-   ---------------------------------------------------------
-   LIVE — real payments go through PayFast.
-   Merchant account 16965295 is verified.
+   LIVE PRODUCTION INTEGRATION
+   Booking fee: R200.00
 
-   To test safely again, set SANDBOX to true and swap in
-   PayFast's public sandbox credentials:
-   MERCHANT_ID "10000100" / MERCHANT_KEY "46f0cd694581a"
+   PayFast signature is generated server-side.
+   Merchant credentials are configured in Vercel.
 ========================================================= */
 
-// Return/cancel links follow whichever domain the visitor booked on
-// (www.concepto-ink-tattoos.online or the old vercel.app address).
-// Falls back to the main domain if opened as a local file.
-var SITE_ORIGIN = /^https?:/.test(window.location.origin)
-    ? window.location.origin
-    : "https://www.concepto-ink.com";
+// Both www and non-www domains use one canonical domain.
+var SITE_ORIGIN = "https://www.concepto-ink.com";
 
 var PAYFAST_CONFIG = {
     SANDBOX: false,
 
-    MERCHANT_ID: "16965295",
-    MERCHANT_KEY: "xjajknapajdjk",
+    PAYMENT_API: "/api/create-booking-payment",
 
     RETURN_URL: SITE_ORIGIN + "/booking-success.html",
     CANCEL_URL: SITE_ORIGIN + "/booking.html",
 
-    // Not functional yet: Vercel static hosting can't run PHP, so
-    // PayFast's server-to-server notification will 404. The customer
-    // payment and redirect still work; you just get no automatic
-    // server-side "payment confirmed" record. A small Vercel
-    // serverless function at /api/booking-notify would fix this.
-    NOTIFY_URL: SITE_ORIGIN + "/booking-notify.php",
-
     BOOKING_FEE: "200.00",
+
     WHATSAPP_NUMBER: "27835319734"
 };
 
@@ -53,83 +41,186 @@ document.addEventListener("DOMContentLoaded", function () {
         if (serviceLabel) serviceLabel.textContent = service;
         if (serviceField) serviceField.value = service;
     } else {
-        if (serviceLabel) serviceLabel.textContent = "General enquiry — tell us what you're after below";
-        if (serviceField) serviceField.value = "General enquiry";
+        if (serviceLabel) {
+            serviceLabel.textContent =
+                "General enquiry — tell us what you're after below";
+        }
+
+        if (serviceField) {
+            serviceField.value = "General enquiry";
+        }
     }
 
     var typeField = document.getElementById("bookingTypeField");
-    if (typeField) typeField.value = type;
+
+    if (typeField) {
+        typeField.value = type;
+    }
 
     var form = document.getElementById("bookingForm");
+
     if (!form) return;
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
+
         e.preventDefault();
 
-        var firstName = document.getElementById("bookingFirstName").value.trim();
-        var lastName = document.getElementById("bookingLastName").value.trim();
-        var email = document.getElementById("bookingEmail").value.trim();
-        var phone = document.getElementById("bookingPhone").value.trim();
-        var chosenService = serviceField ? serviceField.value : service;
-        var notes = document.getElementById("bookingNotes").value.trim();
+        var firstName =
+            document.getElementById("bookingFirstName").value.trim();
 
-        var paymentId = "CI-" + Date.now();
+        var lastName =
+            document.getElementById("bookingLastName").value.trim();
 
-        var itemDescription = chosenService + (notes ? " | Notes: " + notes : "") + (phone ? " | Cell: " + phone : "");
+        var email =
+            document.getElementById("bookingEmail").value.trim();
 
-        var payfastUrl = PAYFAST_CONFIG.SANDBOX
-            ? "https://sandbox.payfast.co.za/eng/process"
-            : "https://www.payfast.co.za/eng/process";
+        var phone =
+            document.getElementById("bookingPhone").value.trim();
 
-        var fields = {
-            merchant_id: PAYFAST_CONFIG.MERCHANT_ID,
-            merchant_key: PAYFAST_CONFIG.MERCHANT_KEY,
-            return_url: PAYFAST_CONFIG.RETURN_URL,
-            cancel_url: PAYFAST_CONFIG.CANCEL_URL,
-            notify_url: PAYFAST_CONFIG.NOTIFY_URL,
+        var chosenService =
+            serviceField ? serviceField.value : service;
 
-            name_first: firstName,
-            name_last: lastName,
-            email_address: email,
-            cell_number: phone,
+        var notes =
+            document.getElementById("bookingNotes").value.trim();
 
-            m_payment_id: paymentId,
-            amount: PAYFAST_CONFIG.BOOKING_FEE,
-            item_name: "Concepto Ink Booking Fee",
-            item_description: itemDescription.slice(0, 255)
-        };
+        if (!firstName || !lastName || !email || !phone) {
+            alert("Please complete all required booking fields.");
+            return;
+        }
 
-        var payfastForm = document.createElement("form");
-        payfastForm.method = "POST";
-        payfastForm.action = payfastUrl;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
 
-        Object.keys(fields).forEach(function (key) {
-            var input = document.createElement("input");
-            input.type = "hidden";
-            input.name = key;
-            input.value = fields[key];
-            payfastForm.appendChild(input);
-        });
+        var paymentButton = form.querySelector(
+            'button[type="submit"], input[type="submit"]'
+        );
 
-        document.body.appendChild(payfastForm);
-        payfastForm.submit();
+        var originalButtonText = "";
+
+        if (paymentButton) {
+            originalButtonText =
+                paymentButton.textContent || paymentButton.value;
+
+            paymentButton.disabled = true;
+
+            if (paymentButton.tagName === "INPUT") {
+                paymentButton.value = "Connecting to PayFast...";
+            } else {
+                paymentButton.textContent = "Connecting to PayFast...";
+            }
+        }
+
+        try {
+
+            var response = await fetch(PAYFAST_CONFIG.PAYMENT_API, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    phone: phone,
+
+                    service: chosenService,
+                    notes: notes,
+
+                    booking_type: type
+
+                })
+            });
+
+            var result = await response.json();
+
+            if (!response.ok || !result.success) {
+                throw new Error(
+                    result.error || "Unable to prepare your payment."
+                );
+            }
+
+            // Submit the signed payment request to PayFast.
+            var payfastForm = document.createElement("form");
+
+            payfastForm.method = "POST";
+
+            payfastForm.action = PAYFAST_CONFIG.SANDBOX
+                ? "https://sandbox.payfast.co.za/eng/process"
+                : "https://www.payfast.co.za/eng/process";
+
+            Object.keys(result.fields).forEach(function (key) {
+
+                var input = document.createElement("input");
+
+                input.type = "hidden";
+                input.name = key;
+                input.value = result.fields[key];
+
+                payfastForm.appendChild(input);
+
+            });
+
+            document.body.appendChild(payfastForm);
+
+            payfastForm.submit();
+
+        } catch (error) {
+
+            console.error("Concepto Ink PayFast Error:", error);
+
+            alert(
+                error.message ||
+                "Something went wrong while preparing your payment. Please try again."
+            );
+
+            if (paymentButton) {
+
+                paymentButton.disabled = false;
+
+                if (paymentButton.tagName === "INPUT") {
+                    paymentButton.value = originalButtonText;
+                } else {
+                    paymentButton.textContent = originalButtonText;
+                }
+
+            }
+
+        }
+
     });
 
-    // WhatsApp fallback link — pulls in whatever the person has
-    // typed so far, so it's useful even before they submit.
+    // WhatsApp booking fallback.
     var waLink = document.getElementById("bookingWhatsappLink");
+
     if (waLink) {
-        waLink.addEventListener("click", function (e) {
-            var chosenService = serviceField ? serviceField.value : service;
-            var name = (document.getElementById("bookingFirstName").value || "").trim();
+
+        waLink.addEventListener("click", function () {
+
+            var chosenService =
+                serviceField ? serviceField.value : service;
+
+            var name =
+                (document.getElementById("bookingFirstName").value || "")
+                .trim();
 
             var message =
-                "Hi Concepto Ink! 👋%0A%0A" +
-                "I'd like to enquire about booking:%0A*" + encodeURIComponent(chosenService) + "*%0A%0A" +
-                (name ? "My name is " + encodeURIComponent(name) + ".%0A" : "") +
+                "Hi Concepto Ink! 👋\n\n" +
+                "I'd like to enquire about booking:\n" +
+                "*" + chosenService + "*\n\n" +
+                (name ? "My name is " + name + ".\n" : "") +
                 "Please let me know the available dates and how the R200 booking fee works. Thank you!";
 
-            waLink.href = "https://wa.me/" + PAYFAST_CONFIG.WHATSAPP_NUMBER + "?text=" + message;
+            waLink.href =
+                "https://wa.me/" +
+                PAYFAST_CONFIG.WHATSAPP_NUMBER +
+                "?text=" +
+                encodeURIComponent(message);
+
         });
+
     }
+
 });
