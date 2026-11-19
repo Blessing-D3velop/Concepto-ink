@@ -1,26 +1,15 @@
 
 /* =========================================================
    CONCEPTO INK — BOOKING + PAYFAST
-   LIVE PRODUCTION INTEGRATION
+   LIVE PAYMENT INTEGRATION
+   Supports www and non-www domains.
    Booking fee: R200.00
-
-   PayFast signature is generated server-side.
-   Merchant credentials are configured in Vercel.
 ========================================================= */
-
-// Both www and non-www domains use one canonical domain.
-var SITE_ORIGIN = "https://www.concepto-ink.com";
 
 var PAYFAST_CONFIG = {
     SANDBOX: false,
-
     PAYMENT_API: "/api/create-booking-payment",
-
-    RETURN_URL: SITE_ORIGIN + "/booking-success.html",
-    CANCEL_URL: SITE_ORIGIN + "/booking.html",
-
     BOOKING_FEE: "200.00",
-
     WHATSAPP_NUMBER: "27835319734"
 };
 
@@ -65,26 +54,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         e.preventDefault();
 
-        var firstName =
-            document.getElementById("bookingFirstName").value.trim();
+        var firstName = document.getElementById("bookingFirstName").value.trim();
+        var lastName = document.getElementById("bookingLastName").value.trim();
+        var email = document.getElementById("bookingEmail").value.trim();
+        var phone = document.getElementById("bookingPhone").value.trim();
 
-        var lastName =
-            document.getElementById("bookingLastName").value.trim();
+        var chosenService = serviceField
+            ? serviceField.value.trim()
+            : service;
 
-        var email =
-            document.getElementById("bookingEmail").value.trim();
+        var notes = document.getElementById("bookingNotes").value.trim();
 
-        var phone =
-            document.getElementById("bookingPhone").value.trim();
-
-        var chosenService =
-            serviceField ? serviceField.value : service;
-
-        var notes =
-            document.getElementById("bookingNotes").value.trim();
-
-        if (!firstName || !lastName || !email || !phone) {
-            alert("Please complete all required booking fields.");
+        if (!firstName || !lastName || !email) {
+            alert("Please complete your name and email address.");
             return;
         }
 
@@ -100,8 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
         var originalButtonText = "";
 
         if (paymentButton) {
-            originalButtonText =
-                paymentButton.textContent || paymentButton.value;
+            originalButtonText = paymentButton.tagName === "INPUT"
+                ? paymentButton.value
+                : paymentButton.textContent;
 
             paymentButton.disabled = true;
 
@@ -120,17 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-
                     first_name: firstName,
                     last_name: lastName,
                     email: email,
                     phone: phone,
-
                     service: chosenService,
                     notes: notes,
-
                     booking_type: type
-
                 })
             });
 
@@ -142,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
             }
 
-            // Submit the signed payment request to PayFast.
             var payfastForm = document.createElement("form");
 
             payfastForm.method = "POST";
@@ -164,20 +142,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             document.body.appendChild(payfastForm);
-
             payfastForm.submit();
 
         } catch (error) {
 
-            console.error("Concepto Ink PayFast Error:", error);
+            console.error("Concepto Ink payment error:", error);
 
             alert(
                 error.message ||
-                "Something went wrong while preparing your payment. Please try again."
+                "Payment could not be prepared. Please try again."
             );
 
             if (paymentButton) {
-
                 paymentButton.disabled = false;
 
                 if (paymentButton.tagName === "INPUT") {
@@ -185,31 +161,31 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     paymentButton.textContent = originalButtonText;
                 }
-
             }
 
         }
 
     });
 
-    // WhatsApp booking fallback.
+    // WhatsApp fallback.
     var waLink = document.getElementById("bookingWhatsappLink");
 
     if (waLink) {
 
         waLink.addEventListener("click", function () {
 
-            var chosenService =
-                serviceField ? serviceField.value : service;
+            var chosenService = serviceField
+                ? serviceField.value
+                : service;
 
-            var name =
-                (document.getElementById("bookingFirstName").value || "")
-                .trim();
+            var name = (
+                document.getElementById("bookingFirstName").value || ""
+            ).trim();
 
             var message =
                 "Hi Concepto Ink! 👋\n\n" +
                 "I'd like to enquire about booking:\n" +
-                "*" + chosenService + "*\n\n" +
+                chosenService + "\n\n" +
                 (name ? "My name is " + name + ".\n" : "") +
                 "Please let me know the available dates and how the R200 booking fee works. Thank you!";
 

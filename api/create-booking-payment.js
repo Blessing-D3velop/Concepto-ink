@@ -1,35 +1,58 @@
 
+/* =========================================================
+   CONCEPTO INK — PAYFAST SERVERLESS PAYMENT API
+   Vercel Node.js Function
+   Supports www and non-www domains.
+========================================================= */
+
 const crypto = require("crypto");
 
-const SITE_ORIGIN = "https://www.concepto-ink.com";
+const ALLOWED_ORIGINS = [
+    "https://concepto-ink.com",
+    "https://www.concepto-ink.com"
+];
 
-function phpUrlEncode(value) {
+// PayFast uses PHP-style URL encoding.
+function payfastEncode(value) {
     return encodeURIComponent(String(value).trim())
-        .replace(/[!'()~]/g, function (char) {
-            return "%" + char.charCodeAt(0).toString(16).toUpperCase();
-        })
-        .replace(/\*/g, "*")
-        .replace(/%[0-9a-f]{2}/gi, function (match) {
-            return match.toUpperCase();
+        .replace(/[!'()*~]/g, function (char) {
+            return "%" + char.charCodeAt(0)
+                .toString(16)
+                .toUpperCase();
         })
         .replace(/%20/g, "+");
 }
 
+// Generate the official custom integration signature.
 function generateSignature(data, passphrase) {
 
-    const parameterString = Object.keys(data)
-        .filter(key => data[key] !== "")
-        .map(key => key + "=" + phpUrlEncode(data[key]))
-        .join("&");
+    let parameterString = "";
 
-    const signatureString = passphrase
-        ? parameterString + "&passphrase=" + phpUrlEncode(passphrase)
-        : parameterString;
+    Object.keys(data).forEach(function (key) {
+
+        const value = data[key];
+
+        if (value !== "" && value !== null && value !== undefined) {
+
+            parameterString +=
+                key + "=" + payfastEncode(value) + "&";
+
+        }
+
+    });
+
+    parameterString = parameterString.slice(0, -1);
+
+    if (passphrase) {
+        parameterString +=
+            "&passphrase=" + payfastEncode(passphrase);
+    }
 
     return crypto
         .createHash("md5")
-        .update(signatureString)
+        .update(parameterString)
         .digest("hex");
+
 }
 
 module.exports = async function (req, res) {
@@ -43,6 +66,16 @@ module.exports = async function (req, res) {
         });
     }
 
+    // Only accept requests from the two Concepto Ink domains.
+    const origin = req.headers.origin;
+
+    if (!ALLOWED_ORIGINS.includes(origin)) {
+        return res.status(403).json({
+            success: false,
+            error: "Unrecognized website domain."
+        });
+    }
+
     const merchantId = process.env.PAYFAST_MERCHANT_ID;
     const merchantKey = process.env.PAYFAST_MERCHANT_KEY;
     const passphrase = process.env.PAYFAST_PASSPHRASE || "";
@@ -50,14 +83,14 @@ module.exports = async function (req, res) {
     if (!merchantId || !merchantKey) {
         return res.status(500).json({
             success: false,
-            error: "PayFast merchant credentials are not configured."
+            error: "PayFast credentials are missing from Vercel."
         });
     }
 
     if (!/^\d{8}$/.test(merchantId.trim())) {
         return res.status(500).json({
             success: false,
-            error: "Invalid PayFast Merchant ID configuration."
+            error: "Invalid PayFast Merchant ID."
         });
     }
 
@@ -72,15 +105,16 @@ module.exports = async function (req, res) {
         const email = String(body.email || "").trim();
         const phone = String(body.phone || "").trim();
 
-        const service = String(body.service || "General enquiry")
-            .trim();
+        const service = String(
+            body.service || "General enquiry"
+        ).trim();
 
         const notes = String(body.notes || "").trim();
 
-        if (!firstName || !lastName || !email || !phone) {
+        if (!firstName || !lastName || !email) {
             return res.status(400).json({
                 success: false,
-                error: "Please complete all required booking fields."
+                error: "Please provide your name and email."
             });
         }
 
@@ -88,11 +122,13 @@ module.exports = async function (req, res) {
             firstName.length > 100 ||
             lastName.length > 100 ||
             email.length > 100 ||
-            phone.length > 100
+            phone.length > 100 ||
+            service.length > 255 ||
+            notes.length > 255
         ) {
             return res.status(400).json({
                 success: false,
-                error: "One or more customer fields are too long."
+                error: "One or more booking fields are too long."
             });
         }
 
@@ -103,23 +139,18 @@ module.exports = async function (req, res) {
             });
         }
 
-        if (service.length > 255 || notes.length > 255) {
-            return res.status(400).json({
-                success: false,
-                error: "Booking information is too long."
-            });
-        }
-
         const paymentId = "CI-" + crypto.randomUUID();
 
         const itemDescription = (
             service +
             (notes ? " | Notes: " + notes : "") +
-            " | Cell: " + phone
+            (phone ? " | Cell: " + phone : "")
         ).slice(0, 255);
 
-        // Keep fields in PayFast's documented custom
-        // integration signature order.
+        // Use the domain the customer actually visited.
+        const siteOrigin = origin;
+
+        // Keep fields in PayFast's documented order.
         const fields = {
 
             merchant_id: merchantId.trim(),
@@ -127,10 +158,10 @@ module.exports = async function (req, res) {
             merchant_key: merchantKey.trim(),
 
             return_url:
-                SITE_ORIGIN + "/booking-success.html",
+                siteOrigin + "/booking-success.html",
 
             cancel_url:
-                SITE_ORIGIN + "/booking.html",
+                siteOrigin + "/booking.html",
 
             name_first: firstName,
 
@@ -150,8 +181,7 @@ module.exports = async function (req, res) {
 
         };
 
-        // Generate the signature using the merchant
-        // passphrase stored securely in Vercel.
+        // Generate the signature on the server.
         fields.signature = generateSignature(
             fields,
             passphrase
@@ -164,11 +194,14 @@ module.exports = async function (req, res) {
 
     } catch (error) {
 
-        console.error("PayFast payment preparation error:", error);
+        console.error(
+            "Concepto Ink PayFast API error:",
+            error
+        );
 
         return res.status(500).json({
             success: false,
-            error: "Unable to prepare your PayFast payment."
+            error: "Unable to prepare your payment."
         });
 
     }
