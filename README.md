@@ -191,6 +191,8 @@ Concepto Ink is one of the projects where I brought together design, frontend de
 **GitHub:** https://github.com/Blessing-D3velop  
 **Portfolio:** https://blessing-dev-solutions-sxcb.vercel.app/
 
----
+<img width="1600" height="1000" alt="concepto-ink-tattoos" src="https://github.com/user-attachments/assets/4d7b4d81-53e5-4530-92c3-110e37aa90e8" />
+<img width="1352" height="646" alt="Screenshot 2026-11-25 160104" src="https://github.com/user-attachments/assets/128c40f8-6555-46b4-8689-b961d6b95ce7" />
+
 
 *Designed and developed by Blessing Dev Solutions.*
