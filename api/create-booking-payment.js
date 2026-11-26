@@ -9,7 +9,9 @@ const crypto = require("crypto");
 
 const ALLOWED_ORIGINS = [
     "https://concepto-ink.com",
-    "https://www.concepto-ink.com"
+    "https://www.concepto-ink.com",
+    "https://conceptoink.co.za",
+    "https://www.conceptoink.co.za"
 ];
 
 // PayFast uses PHP-style URL encoding.
